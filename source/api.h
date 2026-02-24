@@ -8,6 +8,9 @@ typedef struct {
     char videoId[32];
     char author[128];
     int lengthSeconds;
+    char durationText[16];
+    char thumbUrl[256];
+    void *thumb_tex;
 } VideoItem;
 
 // Set the base URL for the API server (e.g., "http://192.168.1.10:3000")

@@ -83,6 +83,35 @@ int parse_trending_json(const char *json_string, VideoItem *items, int max_items
             }
 
             items[count].lengthSeconds = length;
+            
+            // Format durationText from length
+            if (length > 0) {
+                int h = length / 3600;
+                int m = (length % 3600) / 60;
+                int s = length % 60;
+                if (h > 0) snprintf(items[count].durationText, sizeof(items[count].durationText), "%d:%02d:%02d", h, m, s);
+                else snprintf(items[count].durationText, sizeof(items[count].durationText), "%d:%02d", m, s);
+            } else {
+                strncpy(items[count].durationText, "LIVE", sizeof(items[count].durationText) - 1);
+                items[count].durationText[sizeof(items[count].durationText)-1] = '\0';
+            }
+
+            // Extract thumbnail
+            items[count].thumbUrl[0] = '\0';
+            cJSON *thumbnails = cJSON_GetObjectItemCaseSensitive(item, "thumbnails");
+            if (cJSON_IsObject(thumbnails)) {
+                cJSON *thumb = cJSON_GetObjectItemCaseSensitive(thumbnails, "high");
+                if (!cJSON_IsObject(thumb)) thumb = cJSON_GetObjectItemCaseSensitive(thumbnails, "medium");
+                if (!cJSON_IsObject(thumb)) thumb = cJSON_GetObjectItemCaseSensitive(thumbnails, "default");
+                if (cJSON_IsObject(thumb)) {
+                    cJSON *url_node = cJSON_GetObjectItemCaseSensitive(thumb, "url");
+                    if (cJSON_IsString(url_node)) {
+                        strncpy(items[count].thumbUrl, url_node->valuestring, sizeof(items[count].thumbUrl) - 1);
+                        items[count].thumbUrl[sizeof(items[count].thumbUrl) - 1] = '\0';
+                    }
+                }
+            }
+
             count++;
         }
     }

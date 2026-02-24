@@ -102,6 +102,7 @@ CMakeFiles/DarkTube.dir/source/ui.o: D:/Dev/Switch/DarkTube/source/ui.c \
  C:/devkitPro/portlibs/switch/include/SDL2/SDL_version.h \
  C:/devkitPro/portlibs/switch/include/SDL2/SDL_locale.h \
  C:/devkitPro/portlibs/switch/include/SDL2/SDL_misc.h \
+ D:/Dev/Switch/DarkTube/source/network.h \
  C:/devkitPro/libnx/include/switch.h \
  C:/devkitPro/libnx/include/switch/types.h \
  C:/devkitPro/devkitA64/lib/gcc/aarch64-none-elf/15.1.0/include/stdalign.h \

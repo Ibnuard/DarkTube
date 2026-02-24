@@ -42,9 +42,10 @@ int main(int argc, char **argv) {
     // API IP Input Flow
     char api_url[256] = "http://192.168.1.10:3000";
     bool api_ready = false;
+    char status_msg[256] = "Ready.";
     
     while (appletMainLoop() && !api_ready) {
-        ui_render_loading("Press A to enter API Server IP\nPress + to exit.");
+        ui_render_ip_input(api_url, status_msg);
         
         padUpdate(&pad);
         u64 kDown = padGetButtonsDown(&pad);
@@ -56,6 +57,18 @@ int main(int argc, char **argv) {
             return 0;
         }
         
+        if (kDown & HidNpadButton_B) {
+            api_set_base_url(api_url);
+            strcpy(status_msg, "Testing connection...");
+            ui_render_ip_input(api_url, status_msg);
+            
+            if (api_test_connection() == 0) {
+                api_ready = true;
+            } else {
+                strcpy(status_msg, "Connection failed! Check IP.");
+            }
+        }
+        
         if (kDown & HidNpadButton_A) {
             SwkbdConfig swkbd;
             Result rc = swkbdCreate(&swkbd, 0);
@@ -64,28 +77,13 @@ int main(int argc, char **argv) {
                 swkbdConfigSetInitialText(&swkbd, api_url);
                 rc = swkbdShow(&swkbd, api_url, sizeof(api_url));
                 swkbdClose(&swkbd);
-                
-                if (R_SUCCEEDED(rc)) {
-                    api_set_base_url(api_url);
-                    ui_render_loading("Testing connection...");
-                    if (api_test_connection() == 0) {
-                        api_ready = true;
-                    } else {
-                        ui_render_loading("Connection failed! Press A to try again.");
-                        while (appletMainLoop()) {
-                            padUpdate(&pad);
-                            if (padGetButtonsDown(&pad) & HidNpadButton_A) break;
-                            svcSleepThread(10000000);
-                        }
-                    }
-                }
             } else {
-                ui_render_loading("Failed to create keyboard. Using default.");
-                api_set_base_url(api_url);
-                api_ready = true;
+                strcpy(status_msg, "Failed to open keyboard.");
             }
         }
         
+        SDL_Event e;
+        while (SDL_PollEvent(&e)) { }
         svcSleepThread(10000000);
     }
     
@@ -119,9 +117,13 @@ int main(int argc, char **argv) {
             padUpdate(&pad);
             u64 kDown = padGetButtonsDown(&pad);
             if (kDown & HidNpadButton_Plus) break;
+            SDL_Event e;
+            while (SDL_PollEvent(&e)) { }
             svcSleepThread(10000000);
         }
     } else {
+        ui_download_thumbnails(items, video_count);
+
         // Main UI Loop
         while (appletMainLoop()) {
             // Scan pad
@@ -133,13 +135,23 @@ int main(int argc, char **argv) {
             }
             
             if (kDown & HidNpadButton_Down) {
-                selected_index++;
-                if (selected_index >= video_count) selected_index = 0;
+                selected_index += 3; // Grid is 3 columns
+                if (selected_index >= video_count) selected_index = video_count - 1;
             }
             
             if (kDown & HidNpadButton_Up) {
+                selected_index -= 3;
+                if (selected_index < 0) selected_index = 0;
+            }
+
+            if (kDown & HidNpadButton_Right) {
+                selected_index++;
+                if (selected_index >= video_count) selected_index = video_count - 1;
+            }
+
+            if (kDown & HidNpadButton_Left) {
                 selected_index--;
-                if (selected_index < 0) selected_index = video_count - 1;
+                if (selected_index < 0) selected_index = 0;
             }
             
             if (kDown & HidNpadButton_A) {
@@ -156,13 +168,21 @@ int main(int argc, char **argv) {
                         padUpdate(&pad);
                         u64 innerDown = padGetButtonsDown(&pad);
                         if (innerDown & HidNpadButton_B) break;
+                        SDL_Event e;
+                        while (SDL_PollEvent(&e)) { }
                         svcSleepThread(10000000);
                     }
                 }
             }
             
             ui_render_list(items, video_count, selected_index);
+            
+            SDL_Event e;
+            while (SDL_PollEvent(&e)) { }
+            svcSleepThread(10000000);
         }
+        
+        ui_free_thumbnails(items, video_count);
     }
     
     // Cleanup

@@ -19,4 +19,13 @@ void ui_render_list(VideoItem *items, int count, int selected_index);
 // Render a simple loading/status message
 void ui_render_loading(const char *message);
 
+// Render the IP Configuration screen
+void ui_render_ip_input(const char *current_ip, const char *msg);
+
+// Download and allocate thumbnails into video items
+void ui_download_thumbnails(VideoItem *items, int count);
+
+// Free allocated thumbnails
+void ui_free_thumbnails(VideoItem *items, int count);
+
 #endif // UI_H
