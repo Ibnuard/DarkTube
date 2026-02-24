@@ -1,0 +1,35 @@
+CMakeFiles/DarkTube.dir/source/json_parser.o: \
+ D:/Dev/Switch/DarkTube/source/json_parser.c \
+ D:/Dev/Switch/DarkTube/source/json_parser.h \
+ D:/Dev/Switch/DarkTube/source/api.h \
+ C:/devkitPro/devkitA64/lib/gcc/aarch64-none-elf/15.1.0/include/stdbool.h \
+ D:/Dev/Switch/DarkTube/cjson/cJSON.h \
+ C:/devkitPro/devkitA64/lib/gcc/aarch64-none-elf/15.1.0/include/stddef.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/string.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/_ansi.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/newlib.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/_newlib_version.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/config.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/machine/ieeefp.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/features.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/reent.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/_ansi.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/cdefs.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/machine/_default_types.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/_types.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/machine/_types.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/lock.h \
+ C:/devkitPro/devkitA64/lib/gcc/aarch64-none-elf/15.1.0/include/stdint.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/stdint.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/_intsup.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/_stdint.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/_locale.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/strings.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/string.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/stdio.h \
+ C:/devkitPro/devkitA64/lib/gcc/aarch64-none-elf/15.1.0/include/stdarg.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/stdio.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/stdlib.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/machine/stdlib.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/alloca.h \
+ C:/devkitPro/devkitA64/aarch64-none-elf/include/ctype.h

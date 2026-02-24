@@ -278,9 +278,6 @@ NX_UAM_EXE:FILEPATH=/opt/devkitpro/tools/bin/uam.exe
 //Path to a program.
 PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/devkitpro/portlibs/switch/bin/aarch64-none-elf-pkg-config
 
-//No help, variable specified on the command line.
-PLATFORM_SWITCH:UNINITIALIZED=ON
-
 
 ########################
 # INTERNAL cache entries

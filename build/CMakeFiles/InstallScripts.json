@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/d/Dev/Switch/DarkTube/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+f007542516d2ffcd000184d8746e3db6 CMakeFiles/DarkTube_nro
+08c4b84a66192b2b32c5645e37d85007 DarkTube.nacp
+16ffa0f29067532a9c8a98f55d29dec5 DarkTube.nro

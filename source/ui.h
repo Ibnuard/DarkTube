@@ -2,9 +2,13 @@
 #define UI_H
 
 #include "api.h"
+#include <SDL2/SDL.h>
 
-// Initialize the console UI
-void ui_init(void);
+extern SDL_Window *window;
+extern SDL_Renderer *renderer;
+
+// Initialize the SDL2 UI
+int ui_init(void);
 
 // Clean up the UI
 void ui_exit(void);

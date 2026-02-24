@@ -1,0 +1,4 @@
+/d/Dev/Switch/DarkTube/build/CMakeFiles/DarkTube.dir
+/d/Dev/Switch/DarkTube/build/CMakeFiles/DarkTube_nro.dir
+/d/Dev/Switch/DarkTube/build/CMakeFiles/edit_cache.dir
+/d/Dev/Switch/DarkTube/build/CMakeFiles/rebuild_cache.dir

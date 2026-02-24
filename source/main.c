@@ -7,10 +7,8 @@
 #include "ui.h"
 #include "player.h"
 
-// Set heap size to 64MB for large JSON parsing
-u32 __nx_applet_type = AppletType_Default;
-size_t __nx_heap_size = 64 * 1024 * 1024;
-
+// Enable extra memory when running in Applet mode or full mode
+// Libnx automatically handles heap allocation when we don't strictly constrain it.
 // Define pad globally so player.c can use it
 PadState pad;
 
@@ -29,7 +27,7 @@ int main(int argc, char **argv) {
             padUpdate(&pad);
             u64 kDown = padGetButtonsDown(&pad);
             if (kDown & HidNpadButton_Plus) break;
-            consoleUpdate(NULL);
+            svcSleepThread(10000000);
         }
         ui_exit();
         return 0;
@@ -77,7 +75,7 @@ int main(int argc, char **argv) {
                         while (appletMainLoop()) {
                             padUpdate(&pad);
                             if (padGetButtonsDown(&pad) & HidNpadButton_A) break;
-                            consoleUpdate(NULL);
+                            svcSleepThread(10000000);
                         }
                     }
                 }
@@ -88,7 +86,7 @@ int main(int argc, char **argv) {
             }
         }
         
-        consoleUpdate(NULL);
+        svcSleepThread(10000000);
     }
     
     // Allocate VideoItem array on the heap instead of the stack
@@ -99,7 +97,7 @@ int main(int argc, char **argv) {
             padUpdate(&pad);
             u64 kDown = padGetButtonsDown(&pad);
             if (kDown & HidNpadButton_Plus) break;
-            consoleUpdate(NULL);
+            svcSleepThread(10000000);
         }
         player_exit();
         cleanup_network();
@@ -121,7 +119,7 @@ int main(int argc, char **argv) {
             padUpdate(&pad);
             u64 kDown = padGetButtonsDown(&pad);
             if (kDown & HidNpadButton_Plus) break;
-            consoleUpdate(NULL);
+            svcSleepThread(10000000);
         }
     } else {
         // Main UI Loop
@@ -158,7 +156,7 @@ int main(int argc, char **argv) {
                         padUpdate(&pad);
                         u64 innerDown = padGetButtonsDown(&pad);
                         if (innerDown & HidNpadButton_B) break;
-                        consoleUpdate(NULL);
+                        svcSleepThread(10000000);
                     }
                 }
             }
