@@ -154,14 +154,42 @@ int main(int argc, char **argv) {
                 if (selected_index < 0) selected_index = 0;
             }
             
+            if (kDown & HidNpadButton_Y) {
+                // Search
+                char search_query[256] = "";
+                SwkbdConfig swkbd;
+                Result rc = swkbdCreate(&swkbd, 0);
+                if (R_SUCCEEDED(rc)) {
+                    swkbdConfigSetHeaderText(&swkbd, "Search YouTube");
+                    rc = swkbdShow(&swkbd, search_query, sizeof(search_query));
+                    swkbdClose(&swkbd);
+                    
+                    if (R_SUCCEEDED(rc) && strlen(search_query) > 0) {
+                        ui_free_thumbnails(items, video_count);
+                        ui_render_loading("Searching...");
+                        video_count = fetch_search(search_query, items, MAX_VIDEOS);
+                        selected_index = 0;
+                        if (video_count > 0) {
+                            ui_download_thumbnails(items, video_count);
+                        }
+                    }
+                }
+            }
+            
             if (kDown & HidNpadButton_A) {
                 // Play video selection
-                char stream_url[1024] = {0};
+                char stream_url[4096] = {0};
                 
                 ui_render_loading("Resolving stream URL...");
                 
                 if (fetch_video_stream_url(items[selected_index].videoId, stream_url, sizeof(stream_url)) == 0) {
+                    // Invalidate all thumbnail textures (renderer will be destroyed during playback)
+                    for (int t = 0; t < video_count; t++) items[t].thumb_tex = NULL;
+                    
                     player_play_stream(stream_url);
+                    
+                    // Re-download thumbnails after SDL2 renderer is restored
+                    ui_download_thumbnails(items, video_count);
                 } else {
                     ui_render_loading("Failed to resolve stream.\nPress B to return.");
                     while (appletMainLoop()) {

@@ -57,7 +57,7 @@ int http_get(const char *url, char **response, size_t *response_size) {
         
         curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, "DarkTube/1.0 (Nintendo Switch)");
         curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1L);
-        curl_easy_setopt(curl_handle, CURLOPT_MAXFILESIZE_LARGE, (curl_off_t)1000000);
+        curl_easy_setopt(curl_handle, CURLOPT_MAXFILESIZE_LARGE, (curl_off_t)10000000);
         curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10L); 
         curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30L);
         curl_easy_setopt(curl_handle, CURLOPT_SSL_VERIFYPEER, 0L);
@@ -75,7 +75,7 @@ int http_get(const char *url, char **response, size_t *response_size) {
                 return -(int)response_code; 
             }
 
-            if (chunk.size > 1000000) {
+            if (chunk.size > 10000000) {
                 curl_easy_cleanup(curl_handle);
                 free(chunk.memory);
                 return -1;

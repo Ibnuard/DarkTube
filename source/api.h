@@ -24,8 +24,11 @@ int api_test_connection(void);
 // Returns the number of items fetched, or < 0 on error.
 int fetch_trending(VideoItem *items, int max_items);
 
+// Search videos by query
+int fetch_search(const char *query, VideoItem *items, int max_items);
+
 // Fetches video info and retrieves direct MP4 stream URL.
-// The URL should be a pre-allocated buffer of reasonable size (e.g. 1024).
+// The URL should be a pre-allocated buffer of reasonable size (e.g. 4096).
 // Returns 0 on success, < 0 on error.
 int fetch_video_stream_url(const char *videoId, char *stream_url, int max_url_len);
 

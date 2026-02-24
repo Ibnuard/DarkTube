@@ -83,8 +83,12 @@ void ui_render_list(VideoItem *items, int count, int selected_index) {
     SDL_Color red = {255, 50, 50, 255};
     SDL_Color selection_color = {0, 200, 255, 255}; // Nintendo Blue
     
-    render_text(large_font, "DarkTube", 50, 40, red, 0);
-    render_text(global_font, "Trending Videos", 210, 50, white, 0);
+    // Header bar
+    SDL_Rect header = {0, 0, 1280, 70};
+    SDL_SetRenderDrawColor(renderer, 30, 30, 35, 255);
+    SDL_RenderFillRect(renderer, &header);
+    render_text(large_font, "DarkTube", 50, 18, red, 0);
+    render_text(small_font, "Trending Videos", 50, 50, gray, 0);
     
     if (count == 0) {
         render_text(global_font, "No videos loaded.", 640, 360, white, 1);
@@ -94,7 +98,7 @@ void ui_render_list(VideoItem *items, int count, int selected_index) {
     
     int cols = 3;
     int margin_x = 90;
-    int margin_y = 120;
+    int margin_y = 90;
     int thumb_w = 320;
     int thumb_h = 180;
     int spacing_x = 30 + thumb_w;
@@ -134,20 +138,7 @@ void ui_render_list(VideoItem *items, int count, int selected_index) {
             SDL_RenderFillRect(renderer, &thumb_rect);
         }
         
-        // Draw Duration Bubble if available
-        if (strlen(items[i].durationText) > 0) {
-            SDL_Surface *d_surf = TTF_RenderUTF8_Blended(small_font, items[i].durationText, white);
-            if (d_surf) {
-                SDL_Texture *d_tex = SDL_CreateTextureFromSurface(renderer, d_surf);
-                SDL_Rect bg_rect = {x + thumb_w - d_surf->w - 12, y + thumb_h - d_surf->h - 8, d_surf->w + 8, d_surf->h + 4};
-                SDL_SetRenderDrawColor(renderer, 0, 0, 0, 200);
-                SDL_RenderFillRect(renderer, &bg_rect);
-                SDL_Rect d_rect = {bg_rect.x + 4, bg_rect.y + 2, d_surf->w, d_surf->h};
-                SDL_RenderCopy(renderer, d_tex, NULL, &d_rect);
-                SDL_DestroyTexture(d_tex);
-                SDL_FreeSurface(d_surf);
-            }
-        }
+
         
         // Draw Text (Title & Author)
         // Truncate long titles for UI
@@ -170,7 +161,7 @@ void ui_render_list(VideoItem *items, int count, int selected_index) {
     SDL_Rect footer = {0, 720 - 40, 1280, 40};
     SDL_SetRenderDrawColor(renderer, 15, 15, 18, 255);
     SDL_RenderFillRect(renderer, &footer);
-    render_text(small_font, "(A) Play   (B) Back   (+) Exit", 640, 720 - 20, gray, 1);
+    render_text(small_font, "(A) Play   (Y) Search   (+) Exit", 640, 720 - 20, gray, 1);
     
     SDL_RenderPresent(renderer);
 }
@@ -186,40 +177,52 @@ void ui_render_loading(const char *message) {
     SDL_RenderPresent(renderer);
 }
 
-// IP Input Screen (Nintendo Profile Switch Style)
+// IP Input Screen — Dark Premium Style
 void ui_render_ip_input(const char *current_ip, const char *msg) {
     if (!renderer) return;
-    SDL_SetRenderDrawColor(renderer, 235, 235, 235, 255); // Light theme for input dialog like OS
+    SDL_SetRenderDrawColor(renderer, 18, 18, 22, 255);
     SDL_RenderClear(renderer);
     
-    SDL_Color dark_gray = {50, 50, 50, 255};
-    SDL_Color light_gray = {100, 100, 100, 255};
-    SDL_Color blue = {0, 150, 255, 255};
+    SDL_Color white = {255, 255, 255, 255};
+    SDL_Color soft_gray = {140, 140, 150, 255};
+    SDL_Color cyan = {0, 200, 255, 255};
+    SDL_Color red = {255, 50, 50, 255};
+    SDL_Color dim = {80, 80, 90, 255};
     
-    // Draw a big rounded box representation
-    SDL_Rect box = { 640 - 300, 360 - 200, 600, 400 };
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &box);
-    SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255);
-    SDL_RenderDrawRect(renderer, &box);
+    // Title
+    render_text(large_font, "DarkTube", 640, 160, red, 1);
+    render_text(small_font, "YouTube Client for Nintendo Switch", 640, 200, dim, 1);
     
-    render_text(global_font, "Configure API Server", 640, 360 - 140, dark_gray, 1);
+    // Card background
+    SDL_Rect card = {640 - 280, 240, 560, 220};
+    SDL_SetRenderDrawColor(renderer, 32, 32, 38, 255);
+    SDL_RenderFillRect(renderer, &card);
+    // Card border
+    SDL_SetRenderDrawColor(renderer, 50, 50, 60, 255);
+    SDL_RenderDrawRect(renderer, &card);
     
-    SDL_Rect ip_box = { 640 - 200, 360 - 50, 400, 60 };
-    SDL_SetRenderDrawColor(renderer, 245, 245, 245, 255);
+    render_text(global_font, "API Server Address", 640, 260, soft_gray, 1);
+    
+    // IP text field
+    SDL_Rect ip_box = {640 - 220, 300, 440, 50};
+    SDL_SetRenderDrawColor(renderer, 24, 24, 28, 255);
     SDL_RenderFillRect(renderer, &ip_box);
-    SDL_SetRenderDrawColor(renderer, blue.r, blue.g, blue.b, 255); // Highlight
-    for(int r=0; r<3; r++) {
-        SDL_Rect ip_box_r = {ip_box.x+r, ip_box.y+r, ip_box.w-r*2, ip_box.h-r*2};
-        SDL_RenderDrawRect(renderer, &ip_box_r);
+    // Cyan border highlight
+    for (int r = 0; r < 2; r++) {
+        SDL_Rect ib = {ip_box.x + r, ip_box.y + r, ip_box.w - r*2, ip_box.h - r*2};
+        SDL_SetRenderDrawColor(renderer, cyan.r, cyan.g, cyan.b, 255);
+        SDL_RenderDrawRect(renderer, &ib);
     }
+    render_text(global_font, current_ip, 640, 325, white, 1);
     
-    render_text(global_font, current_ip, 640, 360 - 20, dark_gray, 1);
+    // Status message
+    render_text(small_font, msg, 640, 380, soft_gray, 1);
     
-    render_text(small_font, msg, 640, 360 + 60, dark_gray, 1);
-    
-    // Bottom Buttons
-    render_text(small_font, "(A) Edit IP Address   (B) Connect", 640, 360 + 150, light_gray, 1);
+    // Bottom controls bar
+    SDL_Rect footer = {0, 720 - 50, 1280, 50};
+    SDL_SetRenderDrawColor(renderer, 15, 15, 18, 255);
+    SDL_RenderFillRect(renderer, &footer);
+    render_text(small_font, "(A) Edit IP   (B) Connect   (+) Exit", 640, 720 - 25, dim, 1);
     
     SDL_RenderPresent(renderer);
 }

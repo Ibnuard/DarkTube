@@ -53,6 +53,23 @@ int fetch_trending(VideoItem *items, int max_items) {
     return (count > 0) ? count : -2;
 }
 
+int fetch_search(const char *query, VideoItem *items, int max_items) {
+    char url[512];
+    // URL-encode is skipped for simplicity -- Switch keyboard gives simple text
+    snprintf(url, sizeof(url), "%s/api/search?q=%s&maxResults=%d", base_url, query, max_items);
+    
+    char *response = NULL;
+    size_t response_size = 0;
+    
+    int res = http_get(url, &response, &response_size);
+    if (res != 0) return -res;
+    if (!response) return -999;
+    
+    int count = parse_trending_json(response, items, max_items);
+    free(response);
+    return (count > 0) ? count : -2;
+}
+
 int fetch_video_stream_url(const char *videoId, char *stream_url, int max_url_len) {
     char url[512];
     snprintf(url, sizeof(url), "%s/api/stream?id=%s", base_url, videoId);
