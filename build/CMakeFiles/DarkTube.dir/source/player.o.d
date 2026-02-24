@@ -281,5 +281,4 @@ CMakeFiles/DarkTube.dir/source/player.o: \
  C:/devkitPro/devkitA64/lib/gcc/aarch64-none-elf/15.1.0/include/arm_acle.h \
  C:/devkitPro/devkitA64/aarch64-none-elf/include/unistd.h \
  C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/unistd.h \
- C:/devkitPro/portlibs/switch/include/mpv/client.h \
- C:/devkitPro/portlibs/switch/include/SDL2/SDL_syswm.h
+ C:/devkitPro/portlibs/switch/include/mpv/client.h
