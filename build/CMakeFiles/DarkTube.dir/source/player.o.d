@@ -282,6 +282,4 @@ CMakeFiles/DarkTube.dir/source/player.o: \
  C:/devkitPro/devkitA64/aarch64-none-elf/include/unistd.h \
  C:/devkitPro/devkitA64/aarch64-none-elf/include/sys/unistd.h \
  C:/devkitPro/portlibs/switch/include/mpv/client.h \
- C:/devkitPro/portlibs/switch/include/mpv/render_gl.h \
- C:/devkitPro/portlibs/switch/include/mpv/render.h \
- C:/devkitPro/portlibs/switch/include/mpv/client.h
+ C:/devkitPro/portlibs/switch/include/SDL2/SDL_syswm.h

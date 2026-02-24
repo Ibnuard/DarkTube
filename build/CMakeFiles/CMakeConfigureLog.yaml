@@ -62,8 +62,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH"
-      binary: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH"
+      source: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT"
+      binary: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__"
       CMAKE_C_FLAGS_DEBUG: "-g -Og -DDEBUG"
@@ -75,13 +75,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH'
+        Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT'
         
-        Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_f2642/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_f2642.dir/build.make CMakeFiles/cmTC_f2642.dir/build
-        make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH'
-        Building C object CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o
-        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_16fa1/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_16fa1.dir/build.make CMakeFiles/cmTC_16fa1.dir/build
+        make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT'
+        Building C object CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-gcc.exe
         Target: aarch64-none-elf
@@ -89,8 +89,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.1.0 (devkitA64 release 28) 
-        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_f2642.dir/'
-         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_f2642.dir/ -dumpbase CMakeCCompilerABI.c -dumpbase-ext .c -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\cccPMzrN.s
+        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_16fa1.dir/'
+         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_16fa1.dir/ -dumpbase CMakeCCompilerABI.c -dumpbase-ext .c -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\ccTU4D8d.s
         GNU C23 (devkitA64 release 28) version 15.1.0 (aarch64-none-elf)
         	compiled by GNU C version 13.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.18-GMP
         
@@ -108,14 +108,14 @@ events:
          C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/include
         End of search list.
         Compiler executable checksum: d36028eeb7cfea59e0186cb044396aaf
-        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_f2642.dir/'
-         C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o C:\\devkitPro\\msys2\\tmp\\cccPMzrN.s
+        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_16fa1.dir/'
+         C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o C:\\devkitPro\\msys2\\tmp\\ccTU4D8d.s
         GNU assembler version 2.44 (aarch64-none-elf) using BFD version (GNU Binutils) 2.44
         COMPILER_PATH=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../libexec/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/
         LIBRARY_PATH=C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../lib/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/
-        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.'
-        Linking C executable cmTC_f2642.elf
-        /usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_f2642.dir/link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.'
+        Linking C executable cmTC_16fa1.elf
+        /usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_16fa1.dir/link.txt --verbose=1
         Using built-in specs.
         Reading specs from C:/devkitPro/libnx/switch.specs
         COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-gcc.exe
@@ -127,11 +127,11 @@ events:
         gcc version 15.1.0 (devkitA64 release 28) 
         COMPILER_PATH=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../libexec/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/
         LIBRARY_PATH=C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../lib/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/
-        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_f2642.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_f2642.elf.'
-         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\ccW6buiV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_f2642.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o -lnx -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o
-        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_f2642.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_f2642.elf.'
-        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o -o cmTC_f2642.elf  -lnx -lm
-        make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH'
+        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_16fa1.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_16fa1.elf.'
+         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\ccnyiMqm.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_16fa1.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o -lnx -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o
+        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_16fa1.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_16fa1.elf.'
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o -o cmTC_16fa1.elf  -lnx -lm
+        make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT'
         
       exitCode: 0
   -
@@ -166,13 +166,13 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH']
+        ignore line: [Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_f2642/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_f2642.dir/build.make CMakeFiles/cmTC_f2642.dir/build]
-        ignore line: [make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH']
-        ignore line: [Building C object CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o]
-        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_16fa1/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_16fa1.dir/build.make CMakeFiles/cmTC_16fa1.dir/build]
+        ignore line: [make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT']
+        ignore line: [Building C object CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o]
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-gcc.exe]
         ignore line: [Target: aarch64-none-elf]
@@ -180,8 +180,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.1.0 (devkitA64 release 28) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_f2642.dir/']
-        ignore line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_f2642.dir/ -dumpbase CMakeCCompilerABI.c -dumpbase-ext .c -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\cccPMzrN.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_16fa1.dir/']
+        ignore line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_16fa1.dir/ -dumpbase CMakeCCompilerABI.c -dumpbase-ext .c -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\ccTU4D8d.s]
         ignore line: [GNU C23 (devkitA64 release 28) version 15.1.0 (aarch64-none-elf)]
         ignore line: [	compiled by GNU C version 13.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.18-GMP]
         ignore line: []
@@ -199,8 +199,8 @@ events:
         ignore line: [ C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: d36028eeb7cfea59e0186cb044396aaf]
-        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_f2642.dir/']
-        ignore line: [ C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o C:\\devkitPro\\msys2\\tmp\\cccPMzrN.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_16fa1.dir/']
+        ignore line: [ C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o C:\\devkitPro\\msys2\\tmp\\ccTU4D8d.s]
         ignore line: [GNU assembler version 2.44 (aarch64-none-elf) using BFD version (GNU Binutils) 2.44]
         ignore line: [COMPILER_PATH=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/]
         ignore line: [C:/devkitPro/devkitA64/bin/../libexec/gcc/]
@@ -210,9 +210,9 @@ events:
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.']
-        ignore line: [Linking C executable cmTC_f2642.elf]
-        ignore line: [/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_f2642.dir/link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.']
+        ignore line: [Linking C executable cmTC_16fa1.elf]
+        ignore line: [/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_16fa1.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [Reading specs from C:/devkitPro/libnx/switch.specs]
         ignore line: [COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-gcc.exe]
@@ -230,13 +230,13 @@ events:
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_f2642.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_f2642.elf.']
-        link line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\ccW6buiV.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_f2642.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o -lnx -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_16fa1.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_16fa1.elf.']
+        link line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\ccnyiMqm.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_16fa1.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o -lnx -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o]
           arg [C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:devkitPromsys2tmpccW6buiV.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:devkitPromsys2tmpccnyiMqm.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lg] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -257,7 +257,7 @@ events:
           arg [--build-id=sha1] ==> ignore
           arg [--nx-module-name] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_f2642.elf] ==> ignore
+          arg [cmTC_16fa1.elf] ==> ignore
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o]
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o]
           arg [--require-defined=main] ==> ignore
@@ -268,7 +268,7 @@ events:
           arg [-LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0] ==> dir [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0]
           arg [-LC:/devkitPro/devkitA64/bin/../lib/gcc] ==> dir [C:/devkitPro/devkitA64/bin/../lib/gcc]
           arg [-LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib] ==> dir [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib]
-          arg [CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o] ==> ignore
+          arg [CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o] ==> ignore
           arg [-lnx] ==> lib [nx]
           arg [-lm] ==> lib [m]
           arg [--start-group] ==> ignore
@@ -279,9 +279,9 @@ events:
           arg [--end-group] ==> ignore
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o]
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o]
-        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_f2642.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_f2642.elf.']
-        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_f2642.dir/CMakeCCompilerABI.o -o cmTC_f2642.elf  -lnx -lm]
-        ignore line: [make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-TxAnzH']
+        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_16fa1.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_16fa1.elf.']
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-gcc.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_16fa1.dir/CMakeCCompilerABI.o -o cmTC_16fa1.elf  -lnx -lm]
+        ignore line: [make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-SmYkXT']
         ignore line: []
         ignore line: []
         collapse library dir [C:/devkitPro/libnx/lib] ==> [C:/devkitPro/libnx/lib]
@@ -306,8 +306,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0"
-      binary: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0"
+      source: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh"
+      binary: "/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__"
       CMAKE_CXX_FLAGS_DEBUG: "-g -Og -DDEBUG"
@@ -320,13 +320,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0'
+        Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh'
         
-        Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_b283e/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_b283e.dir/build.make CMakeFiles/cmTC_b283e.dir/build
-        make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0'
-        Building CXX object CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o
-        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_e635f/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e635f.dir/build.make CMakeFiles/cmTC_e635f.dir/build
+        make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh'
+        Building CXX object CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-g++.exe
         Target: aarch64-none-elf
@@ -334,8 +334,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.1.0 (devkitA64 release 28) 
-        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_b283e.dir/'
-         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1plus.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_b283e.dir/ -dumpbase CMakeCXXCompilerABI.cpp -dumpbase-ext .cpp -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\ccNzDgpl.s
+        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_e635f.dir/'
+         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1plus.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_e635f.dir/ -dumpbase CMakeCXXCompilerABI.cpp -dumpbase-ext .cpp -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\ccziCNET.s
         GNU C++17 (devkitA64 release 28) version 15.1.0 (aarch64-none-elf)
         	compiled by GNU C version 13.3.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.18-GMP
         
@@ -359,14 +359,14 @@ events:
          C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/include
         End of search list.
         Compiler executable checksum: b93adf0d47cf777244204c7a08aa395d
-        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_b283e.dir/'
-         C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o C:\\devkitPro\\msys2\\tmp\\ccNzDgpl.s
+        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_e635f.dir/'
+         C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o C:\\devkitPro\\msys2\\tmp\\ccziCNET.s
         GNU assembler version 2.44 (aarch64-none-elf) using BFD version (GNU Binutils) 2.44
         COMPILER_PATH=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../libexec/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/
         LIBRARY_PATH=C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../lib/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/
-        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.'
-        Linking CXX executable cmTC_b283e.elf
-        /usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_b283e.dir/link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.'
+        Linking CXX executable cmTC_e635f.elf
+        /usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_e635f.dir/link.txt --verbose=1
         Using built-in specs.
         Reading specs from C:/devkitPro/libnx/switch.specs
         COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-g++.exe
@@ -378,11 +378,11 @@ events:
         gcc version 15.1.0 (devkitA64 release 28) 
         COMPILER_PATH=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../libexec/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/
         LIBRARY_PATH=C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/;C:/devkitPro/devkitA64/bin/../lib/gcc/;C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/
-        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_b283e.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_b283e.elf.'
-         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\cc3HbLNt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_b283e.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o -lnx -lstdc++ -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o
-        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_b283e.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_b283e.elf.'
-        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o -o cmTC_b283e.elf  -lnx -lm
-        make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0'
+        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_e635f.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_e635f.elf.'
+         C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\ccpHqOR5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_e635f.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o -lnx -lstdc++ -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o
+        COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_e635f.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_e635f.elf.'
+        /opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o -o cmTC_e635f.elf  -lnx -lm
+        make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh'
         
       exitCode: 0
   -
@@ -423,13 +423,13 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0']
+        ignore line: [Change Dir: '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_b283e/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_b283e.dir/build.make CMakeFiles/cmTC_b283e.dir/build]
-        ignore line: [make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0']
-        ignore line: [Building CXX object CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o]
-        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake.exe -E env VERBOSE=1 /usr/bin/make.exe -f Makefile cmTC_e635f/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_e635f.dir/build.make CMakeFiles/cmTC_e635f.dir/build]
+        ignore line: [make[1]: Entering directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh']
+        ignore line: [Building CXX object CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o]
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe  -isystem /opt/devkitpro/libnx/include -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -fPIE   -v -o CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-g++.exe]
         ignore line: [Target: aarch64-none-elf]
@@ -437,8 +437,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.1.0 (devkitA64 release 28) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_b283e.dir/']
-        ignore line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1plus.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_b283e.dir/ -dumpbase CMakeCXXCompilerABI.cpp -dumpbase-ext .cpp -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\ccNzDgpl.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_e635f.dir/']
+        ignore line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/cc1plus.exe -quiet -v -imultilib pic -iprefix C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/ -D __SWITCH__ -D NDEBUG -isystem C:/devkitPro/libnx/include C:/devkitPro/msys2/usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_e635f.dir/ -dumpbase CMakeCXXCompilerABI.cpp -dumpbase-ext .cpp -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -mlittle-endian -mabi=lp64 -g -O2 -version -ftls-model=local-exec -ffunction-sections -fdata-sections -fPIE -o C:\\devkitPro\\msys2\\tmp\\ccziCNET.s]
         ignore line: [GNU C++17 (devkitA64 release 28) version 15.1.0 (aarch64-none-elf)]
         ignore line: [	compiled by GNU C version 13.3.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.18-GMP]
         ignore line: []
@@ -462,8 +462,8 @@ events:
         ignore line: [ C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: b93adf0d47cf777244204c7a08aa395d]
-        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_b283e.dir/']
-        ignore line: [ C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o C:\\devkitPro\\msys2\\tmp\\ccNzDgpl.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_e635f.dir/']
+        ignore line: [ C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/bin/as.exe -v --gdwarf-5 -EL -march=armv8-a+crc+crypto -mabi=lp64 -o CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o C:\\devkitPro\\msys2\\tmp\\ccziCNET.s]
         ignore line: [GNU assembler version 2.44 (aarch64-none-elf) using BFD version (GNU Binutils) 2.44]
         ignore line: [COMPILER_PATH=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/]
         ignore line: [C:/devkitPro/devkitA64/bin/../libexec/gcc/]
@@ -473,9 +473,9 @@ events:
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.']
-        ignore line: [Linking CXX executable cmTC_b283e.elf]
-        ignore line: [/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_b283e.dir/link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-isystem' 'C:/devkitPro/libnx/include' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-fPIE' '-v' '-o' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o' '-c' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.']
+        ignore line: [Linking CXX executable cmTC_e635f.elf]
+        ignore line: [/usr/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_e635f.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [Reading specs from C:/devkitPro/libnx/switch.specs]
         ignore line: [COLLECT_GCC=C:\\devkitPro\\devkitA64\\bin\\aarch64-none-elf-g++.exe]
@@ -493,13 +493,13 @@ events:
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/]
         ignore line: [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_b283e.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_b283e.elf.']
-        link line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\cc3HbLNt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_b283e.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o -lnx -lstdc++ -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_e635f.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_e635f.elf.']
+        link line: [ C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe -plugin C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll -plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\devkitPro\\msys2\\tmp\\ccpHqOR5.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lg -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lsysbase -EL -X -maarch64elf -T C:/devkitPro/libnx/switch.ld -pie --no-dynamic-linker --spare-dynamic-tags=0 --gc-sections -z text -z now -z nodynamic-undefined-weak -z pack-relative-relocs --build-id=sha1 --nx-module-name -o cmTC_e635f.elf C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o --require-defined=main -LC:/devkitPro/libnx/lib -LC:/devkitPro/portlibs/switch/lib -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib/pic -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0 -LC:/devkitPro/devkitA64/bin/../lib/gcc -LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o -lnx -lstdc++ -lm --start-group -lgcc -lg -lc -lsysbase --end-group C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o]
           arg [C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/liblto_plugin.dll] ==> ignore
           arg [-plugin-opt=C:/devkitPro/devkitA64/bin/../libexec/gcc/aarch64-none-elf/15.1.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:devkitPromsys2tmpcc3HbLNt.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:devkitPromsys2tmpccpHqOR5.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lg] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -520,7 +520,7 @@ events:
           arg [--build-id=sha1] ==> ignore
           arg [--nx-module-name] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_b283e.elf] ==> ignore
+          arg [cmTC_e635f.elf] ==> ignore
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crti.o]
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtbegin.o]
           arg [--require-defined=main] ==> ignore
@@ -531,7 +531,7 @@ events:
           arg [-LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0] ==> dir [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0]
           arg [-LC:/devkitPro/devkitA64/bin/../lib/gcc] ==> dir [C:/devkitPro/devkitA64/bin/../lib/gcc]
           arg [-LC:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib] ==> dir [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/../../../../aarch64-none-elf/lib]
-          arg [CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o] ==> ignore
+          arg [CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o] ==> ignore
           arg [-lnx] ==> lib [nx]
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
@@ -543,9 +543,9 @@ events:
           arg [--end-group] ==> ignore
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtend.o]
           arg [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o] ==> obj [C:/devkitPro/devkitA64/bin/../lib/gcc/aarch64-none-elf/15.1.0/pic/crtn.o]
-        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_b283e.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_b283e.elf.']
-        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_b283e.dir/CMakeCXXCompilerABI.o -o cmTC_b283e.elf  -lnx -lm]
-        ignore line: [make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-oML3F0']
+        ignore line: [COLLECT_GCC_OPTIONS='-mtp=soft' '-ftls-model=local-exec' '-ffunction-sections' '-fdata-sections' '-D' '__SWITCH__' '-g' '-O2' '-D' 'NDEBUG' '-march=armv8-a+crc+crypto' '-mtune=cortex-a57' '-mtp=soft' '-ftls-model=local-exec' '-LC:/devkitPro/libnx/lib' '-LC:/devkitPro/portlibs/switch/lib' '-fPIE' '-specs=C:/devkitPro/libnx/switch.specs' '-v' '-o' 'cmTC_e635f.elf' '-mlittle-endian' '-mabi=lp64' '-dumpdir' 'cmTC_e635f.elf.']
+        ignore line: [/opt/devkitpro/devkitA64/bin/aarch64-none-elf-g++.exe -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -ffunction-sections -fdata-sections -D__SWITCH__  -g -O2 -DNDEBUG -march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -ftls-model=local-exec -L/opt/devkitpro/libnx/lib -L/opt/devkitpro/portlibs/switch/lib -fPIE -specs=/opt/devkitpro/libnx/switch.specs -v CMakeFiles/cmTC_e635f.dir/CMakeCXXCompilerABI.o -o cmTC_e635f.elf  -lnx -lm]
+        ignore line: [make[1]: Leaving directory '/d/Dev/Switch/DarkTube/build/CMakeFiles/CMakeScratch/TryCompile-gzVeXh']
         ignore line: []
         ignore line: []
         collapse library dir [C:/devkitPro/libnx/lib] ==> [C:/devkitPro/libnx/lib]
