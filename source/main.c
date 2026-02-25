@@ -178,28 +178,30 @@ int main(int argc, char **argv) {
             
             if (kDown & HidNpadButton_A) {
                 // Play video selection
-                char stream_url[4096] = {0};
-                
-                ui_render_loading("Resolving stream URL...");
-                
-                if (fetch_video_stream_url(items[selected_index].videoId, stream_url, sizeof(stream_url)) == 0) {
-                    // Invalidate all thumbnail textures (renderer will be destroyed during playback)
-                    for (int t = 0; t < video_count; t++) items[t].thumb_tex = NULL;
+                char *stream_url = calloc(4096, sizeof(char));
+                if (stream_url) {
+                    ui_render_loading("Resolving stream URL...");
                     
-                    player_play_stream(stream_url);
-                    
-                    // Re-download thumbnails after SDL2 renderer is restored
-                    ui_download_thumbnails(items, video_count);
-                } else {
-                    ui_render_loading("Failed to resolve stream.\nPress B to return.");
-                    while (appletMainLoop()) {
-                        padUpdate(&pad);
-                        u64 innerDown = padGetButtonsDown(&pad);
-                        if (innerDown & HidNpadButton_B) break;
-                        SDL_Event e;
-                        while (SDL_PollEvent(&e)) { }
-                        svcSleepThread(10000000);
+                    if (fetch_video_stream_url(items[selected_index].videoId, stream_url, 4096) == 0) {
+                        // Invalidate all thumbnail textures (renderer will be destroyed during playback)
+                        for (int t = 0; t < video_count; t++) items[t].thumb_tex = NULL;
+                        
+                        player_play_stream(stream_url);
+                        
+                        // Re-download thumbnails after SDL2 renderer is restored
+                        ui_download_thumbnails(items, video_count);
+                    } else {
+                        ui_render_loading("Failed to resolve stream.\nPress B to return.");
+                        while (appletMainLoop()) {
+                            padUpdate(&pad);
+                            u64 innerDown = padGetButtonsDown(&pad);
+                            if (innerDown & HidNpadButton_B) break;
+                            SDL_Event e;
+                            while (SDL_PollEvent(&e)) { }
+                            svcSleepThread(10000000);
+                        }
                     }
+                    free(stream_url);
                 }
             }
             

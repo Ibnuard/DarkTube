@@ -128,7 +128,22 @@ int parse_video_url_json(const char *json_string, char *stream_url, int max_url_
         return -1;
     }
 
-    // Custom API wrapper returns { "url": "..." }
+    // Try to get URL from the "formats" array first (new API format)
+    cJSON *formats = cJSON_GetObjectItemCaseSensitive(root, "formats");
+    if (cJSON_IsArray(formats)) {
+        cJSON *first = cJSON_GetArrayItem(formats, 0);
+        if (cJSON_IsObject(first)) {
+            cJSON *f_url = cJSON_GetObjectItemCaseSensitive(first, "url");
+            if (cJSON_IsString(f_url)) {
+                strncpy(stream_url, f_url->valuestring, max_url_len - 1);
+                stream_url[max_url_len - 1] = '\0';
+                cJSON_Delete(root);
+                return 0;
+            }
+        }
+    }
+
+    // Fallback: top-level "url"
     cJSON *url = cJSON_GetObjectItemCaseSensitive(root, "url");
     if (cJSON_IsString(url)) {
         strncpy(stream_url, url->valuestring, max_url_len - 1);
