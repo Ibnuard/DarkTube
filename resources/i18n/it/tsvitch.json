@@ -1,0 +1,476 @@
+{
+  "title": "TsVitch",
+  "github": "https://github.com/giovannimirulla/TsVitch",
+  "github_release": "https://github.com/giovannimirulla/TsVitch/releases/latest",
+  "setting": {
+    "quit_hint": "Stai per uscire dall'applicazione. Le impostazioni avranno effetto dopo il prossimo avvio",
+    "app": {
+      "tab": "App",
+      "playback": {
+        "header": "Riproduzione",
+        "report": "Carica cronologia riproduzione",
+        "player_bar": "Mostra sempre la barra di avanzamento",
+        "low_quality": "Decodifica di bassa qualità (Minor utilizzo CPU)",
+        "in_memory_cache": "Cache in memoria",
+        "hwdec": "Decodifica Hardware",
+        "exit_fullscreen": "Esci dallo schermo intero alla fine della riproduzione",
+        "play_strategy": "Strategia di riproduzione",
+        "auto_play_next_part": "Riproduci automaticamente la parte successiva",
+        "auto_play_recommend": "Riproduci automaticamente i video consigliati",
+        "auto_loop": "Ripeti il video corrente",
+        "auto_no": "Metti in pausa dopo la riproduzione",
+        "auto_hint": "\"Riproduzione automatica dei video consigliati\" riprodurrà automaticamente i video consigliati dopo l'episodio.",
+        "sleep": "Spegnimento programmato",
+        "video_codec": "Codec Video",
+        "audio_quality": "Qualità audio",
+        "video_format": "Formato video",
+        "player": "Player"
+      },
+      "image": {
+        "header": "Immagine",
+        "texture": "Numero di cache texture immagini",
+        "threads": "Numero di thread caricamento immagini"
+      },
+      "network": {
+        "header": "Rete",
+        "tls": "Verifica TLS",
+        "proxy": "Proxy",
+        "proxy_hint": "esempio: http://127.0.0.1:7890"
+      },
+      "ui": {
+        "header": "UI",
+        "tv_osd": "Controllo OSD stile TV",
+        "window": "Finestra",
+        "bottom_bar": "Barra dei suggerimenti in basso"
+      },
+      "others": {
+        "header": "Altri",
+        "vibration": "Vibrazione del Gamepad",
+        "hide_bottom": "Nascondi la barra dei suggerimenti qui sotto",
+        "show_bottom": "Mostra la barra dei suggerimenti in basso",
+        "hide_fps": "Nascondi FPS",
+        "show_fps": "Mostra FPS",
+        "limited_fps": "Limite massimo frame",
+        "limited_fps_vsync": "Sincronizzazione Verticale",
+        "fullscreen": "Schermo intero",
+        "always_on_top": "Sempre in primo piano",
+        "tv_search": "Pagina di ricerca stile TV",
+        "clear_history": "Cancella cronologia ricerche",
+        "theme": {
+          "header": "Tema (riavvio richiesto)",
+          "1": "Automatico",
+          "2": "Chiaro",
+          "3": "Scuro"
+        },
+        "custom_theme": {
+          "header": "Layout personalizzato (riavvio richiesto)"
+        },
+        "scale": {
+          "header": "Scala UI (riavvio richiesto)",
+          "544p": "544p",
+          "720p": "720p",
+          "900p": "900p",
+          "1080p": "1080p"
+        },
+        "language": {
+          "header": "Lingua (riavvio richiesto)",
+          "auto": "Auto",
+          "chinese_s": "Cinese semplificato",
+          "chinese_t": "Cinese tradizionale",
+          "english": "Inglese",
+          "japanese": "Giapponese",
+          "ryukyuan": "Ryukyuan",
+          "italiano": "Italiano",
+          "korean": "Coreano",
+          "portuguese_br": "Portoghese Brasiliano"
+        },
+        "opencc": "Converti automaticamente il cinese semplificato (riavvio richiesto)",
+        "keymap": {
+          "header": "Stile mappatura tasti",
+          "xbox": "Xbox",
+          "ps": "PlayStation",
+          "keyboard": "Tastiera",
+          "swap": "Scambia i pulsanti"
+        }
+      }
+    },
+    "tools": {
+      "tab": "Strumenti",
+      "m3u8": {
+        "header": "Playlist M3U8",
+        "input": "Playlist personalizzata",
+        "timeout": "Timeout download (secondi)",
+        "hint": "http://example.com/playlist.m3u8"
+      },
+      "proxy": {
+        "header": "Impostazioni Proxy",
+        "input": "Server proxy",
+        "hint": "http://127.0.0.1:8080 o socks5://127.0.0.1:1080"
+      },
+      "tutorial": {
+        "header": "Guida",
+        "intro": "Introduzione al software (video online; cinese)",
+        "wiki": "Accedi al nostro wiki per maggiori informazioni",
+        "open": "Come installare l'icona sul desktop",
+        "error": "Se riscontri un bug",
+        "hot_key": "Tasti rapidi",
+        "font": "Imposta font personalizzato"
+      },
+      "test": {
+        "header": "Diagnostica",
+        "net": "Diagnostica di rete",
+        "proxy": "Test proxy",
+        "proxy_none": "Nessun proxy configurato",
+        "proxy_testing": "Test del proxy",
+        "proxy_success": "✓ Proxy funziona correttamente",
+        "proxy_failed": "✗ Proxy fallito - Codice",
+        "proxy_error": "✗ Errore test proxy",
+        "vibration": "Test Vibrazione"
+      },
+      "others": {
+        "header": "Altri",
+        "dlna": "Renderer DLNA",
+        "dlna_waiting": "In attesa del casting DLNA...",
+        "dlna_quit": "Uscire dal casting DLNA?",
+        "up2date": "L'applicazione è aggiornata",
+        "checking_update": "Controllo aggiornamenti...",
+        "release": "Controlla aggiornamenti",
+        "config": "Apri cartella di configurazione",
+        "config_dir": "Mostra la cartella di configurazione"
+      }
+    },
+    "about": {
+      "tab": "Info",
+      "brief_header": "Introduzione",
+      "repository": "Repository",
+      "brief": "La TV finalmente sulla Switch",
+      "repo_header": "Repository",
+      "author_header": "Intervento dell'autore",
+      "author": "Quanto è bello guardare la TV in bagno",
+      "contrib_header": "Contribuzione e Sponsor",
+      "contrib_text": "TsVitch è un progetto open-source: contributi, segnalazioni di bug e suggerimenti sono benvenuti. Se ti piace il progetto e vuoi sostenerlo, valuta di diventare sponsor. Trovi tutte le informazioni e le modalità nel repository GitHub.",
+      "contributors_header": "Contributori",
+      "sponsors_header": "Sponsor",
+      "sponsor_qr": "Diventa Sponsor"
+    },
+    "opensource": {
+      "tab": "Opensource"
+    },
+    "tutorial": {
+      "error_q1": "Impossibile accedere alla rete",
+      "error_a1": "1. Assicurarsi che atmosphere e il firmware di sistema siano aggiornati\n2. Verificare che l'ora di sistema sia corretta\n3. Ripristina le impostazioni di rete predefinite, tra cui IP, DNS, ecc",
+      "error_q2": "Uscita con errore casuale",
+      "error_a2": "1. Utilizzare una scheda di memoria in formato Fat32\n2. Assicurarsi che atmosphere e il firmware di sistema siano aggiornati\n3. In attesa che gli sviluppatori risolvano",
+      "font_q1": "Come impostare font o icona personalizzata",
+      "font_a1": "1. Scarica il font o l'icona che desideri\n2. Rinomina il font in: font.ttf; Rinomina l'icona in: icon.ttf\n3. Inserisci i file nella cartella di configurazione\n4. Riavvia l'applicazione",
+      "font_q2": "Domande frequenti",
+      "font_a2": "1. TsVitch dà priorità ai font personalizzati, con i font integrati come fallback\n2. \"Impostazioni - Strumenti - Altri\" offre una voce di menu per aprire rapidamente la cartella di configurazione\n3. Su Linux, TsVitch usa xdg-open per aprire la cartella. Se la cartella non si apre correttamente, considera di installare questo strumento"
+    },
+    "hot_keys": {
+      "common_header": "Comuni",
+      "common_content": " /  Cambia pagina principale\n /  Cambia pagina secondaria",
+      "player_header": "Player",
+      "player_content": " Aumenta velocità, doppio click  per bloccare\n +  Avanza\n Mostra/nascondi OSD\n Mostra/nascondi danmaku"
+    },
+    "net": {
+      "test": {
+        "header": "Accesso alla rete",
+        "feed": "Richiesta per ottenere la playlist"
+      },
+      "profile": {
+        "header": "Rete",
+        "subtitle": "Il ripristino delle impostazioni di rete può anche risolvere alcuni problemi",
+        "ip": "Indirizzo IP",
+        "dns": "Indirizzo DNS"
+      }
+    }
+  },
+  "hints": {
+    "hint1": "Seleziona un gioco dalla schermata home",
+    "hint2": "Tieni premuto il tasto  e premi  per entrare in hbmenu",
+    "hint3": "In hbmenu, seleziona TsVitch",
+    "hint4": "Opzionale: usa il forwarder NSP fornito (Metti TsVitch.nro in /switch/TsVitch.nro)",
+    "hint_nsp": "Premi  per installare il forwarder NSP",
+    "hint_confirm": "Installare il forwarder NSP può causare un ban\nConfermi?",
+    "hint_right": "Le immagini provengono da Internet, il copyright appartiene a Nintendo Co., Ltd"
+  },
+  "home": {
+    "common": {
+      "part": "Canale:",
+      "recommend": "Raccomandato",
+      "search": "Cerca canale",
+      "switch": "Switch",
+      "refresh": "Aggiorna",
+      "last": "Ultimo",
+      "next": "Successivo",
+      "filter": "Filtro",
+      "save": "Salva",
+      "min": "Minuti",
+      "high": "Alta",
+      "medium": "Media",
+      "low": "Bassa",
+      "no_login": "Non hai ancora effettuato l'accesso",
+      "downloads": "Download",
+      "download_tab": "Download",
+      "download_start": "Avvia download",
+      "download_pause": "Pausa download",
+      "download_resume": "Riprendi download",
+      "download_cancel": "Annulla download",
+      "download_delete": "Elimina download",
+      "download_completed": "Download completato",
+      "download_progress": "In download...",
+      "download_failed": "Download fallito",
+      "downloaded_videos": "Video scaricati",
+      "no_downloads": "Nessun download"
+    },
+    "live": {
+      "tab": "Canali",
+      "dialog": "Canali",
+      "default": "Canale: Esplora"
+    },
+    "rcmd": {
+      "tab": "Esplora"
+    },
+    "hots": {
+      "tab": "Popolari",
+      "t1": "Popolari",
+      "t2": "Classifica",
+      "t3": "Settimanale",
+      "t4": "Cronologia"
+    },
+    "bangumi": {
+      "tab": "Bangumi"
+    },
+    "cinema": {
+      "tab": "Cinema"
+    }
+  },
+  "dynamic": {
+    "detail": "Dettaglio attività",
+    "video": "Video",
+    "article": "Attività"
+  },
+  "search": {
+    "tv": {
+      "hint": "Supporta parole chiave e le loro iniziali",
+      "clear": "Cancella",
+      "delete": "Elimina",
+      "search": "Cerca",
+      "hots": "Popolari",
+      "history": "Cronologia",
+      "history_clear": "Cancella tutto",
+      "history_delete": "Elimina",
+      "suggest": "Suggerisci"
+    },
+    "order": {
+      "all": "Tutto",
+      "click": "Click",
+      "pubdate": "Data pubblicazione",
+      "dm": "Danmaku",
+      "stow": "Preferito"
+    },
+    "tab": "Cerca",
+    "t0": "Cronologia",
+    "t1": "Popolari",
+    "t2": "Video",
+    "t3": "Bangumi",
+    "t4": "Cinema"
+  },
+  "activity": {
+    "all": "Tutte le attività",
+    "refresh": "Aggiorna elenco"
+  },
+  "mine": {
+    "login": {
+      "check": "Verifica informazioni di accesso...",
+      "success": "Accesso riuscito",
+      "refresh": "Aggiorna",
+      "click": "Clicca qui per accedere",
+      "logout": "Esci dall'account corrente \n(l'app verrà chiusa)",
+      "scan": "Scansiona il codice QR per accedere",
+      "loading": "Caricamento codice QR...",
+      "hint": "Usa il client TsVitch per scansionare il codice QR",
+      "network_error": "Errore di rete, riprova",
+      "qr_not_available": "Codice QR non valido, rientra nella finestra di dialogo",
+      "need_confirm": "In attesa di conferma",
+      "need_scan": "In attesa della scansione del codice QR"
+    },
+    "later": "Guarda più tardi",
+    "history": "Cronologia",
+    "collection": "Preferiti",
+    "subscription": "Abbonamenti",
+    "anime": "Anime",
+    "series": "Serie",
+    "refresh_history": "Aggiorna cronologia",
+    "refresh_collection": "Aggiorna preferiti",
+    "refresh_subscription": "Aggiorna abbonamenti",
+    "refresh_later": "Aggiorna Guarda Più Tardi",
+    "refresh_anime": "Aggiorna anime",
+    "refresh_series": "Aggiorna serie",
+    "coin": "Monete",
+    "following": "Seguiti",
+    "follower": "Follower",
+    "activity": "Attività",
+    "public": "Pubblico",
+    "private": "Privato",
+    "num": " contenuti",
+    "pub": "Creato il",
+    "creator": "Autore",
+    "done": "Completato",
+    "article": "Apri con il browser:"
+  },
+  "player": {
+    "intro": "Introduzione",
+    "p": "Parti",
+    "ugc_season": "Playlist",
+    "related": "Correlati",
+    "series": "Serie",
+    "recommend": "Consigliati",
+    "uploaded": "Altri",
+    "qr": "Scansiona il QR per guardare/condividere",
+    "clipboard": "Copiato negli appunti",
+    "comment": "Commenta",
+    "current": " persone stanno guardando",
+    "share": "Condividi",
+    "rights": "Ripubblicazione vietata",
+    "fs": "Schermo intero",
+    "quality": "Qualità",
+    "speed": "Velocità",
+    "replay": "Ripeti",
+    "current_speed": "Velocità corrente: {0}",
+    "not_follow": "Annullare il seguito?",
+    "coin": {
+      "title": "Monete",
+      "hint": "Scegli il numero di monete",
+      "like": "Metti Mi piace contemporaneamente",
+      "own": "Non puoi dare monete a te stesso",
+      "run_out": "Il numero di monete per questo video è esaurito",
+      "exp": "Esperienza + {}（Oggi {}/50）",
+      "exp_full": "Esperienza giornaliera massima raggiunta (50/50)  ！",
+      "pcs": "{} pezzi"
+    },
+    "season_part": {
+      "ascend": "Crescente",
+      "descend": "Decrescente"
+    },
+    "comment_sort": {
+      "sort_top": "Ordina per popolarità",
+      "sort_new": "Ordina per più recenti",
+      "top": "Commenti migliori",
+      "new": "Commenti più recenti"
+    },
+    "collection": {
+      "type": "Preferiti",
+      "title": "Seleziona Preferiti"
+    },
+    "setting": {
+      "subtitle": {
+        "header": "Sottotitoli"
+      },
+      "equalizer": {
+        "header": "Equalizzatore",
+        "brightness": "Luminosità",
+        "contrast": "Contrasto",
+        "saturation": "Saturazione",
+        "gamma": "Gamma",
+        "hue": "Tonalità",
+        "reset": "Ripristina"
+      },
+      "common": {
+        "header": "Comuni",
+        "mirror": "Specchia",
+        "highlight": "Mostra sempre hotspot",
+        "skip_opening_credits": "Salta sigla iniziale",
+        "skip_hint1": "Salta automaticamente la sigla dal prossimo video",
+        "skip_hint2": "Disattiva salto sigla dal prossimo video",
+        "skip_hint3": "Usa sigla personalizzata dal prossimo video",
+        "skip_hint4": "Disattiva sigla personalizzata dal prossimo video",
+        "wiki": "Accedi al nostro wiki per sapere come funzionano gli shader"
+      },
+      "season": {
+        "aspect": "Proporzioni video personalizzate",
+        "clip": "Sigla personalizzata",
+        "clip_start": "Durata intro",
+        "clip_end": "Durata outro",
+        "unit": "Unità: secondi"
+      },
+      "aspect": {
+        "header": "Proporzioni video",
+        "crop": "Ritaglia",
+        "stretch": "Allunga",
+        "auto": "Auto"
+      },
+      "shader": {
+        "header": "Shader"
+      }
+    },
+    "cast": {
+      "header": "DLNA",
+      "device": "Dispositivi",
+      "request_url": "Richiesta link video...",
+      "cast_to_renderer": "Casting al renderer...",
+      "casting": "Casting...",
+      "cancel": "Annulla casting video",
+      "err_connect": "Impossibile connettersi al renderer DLNA",
+      "err_url": "Impossibile ottenere il link del video",
+      "countdown": "Conto alla rovescia ricerca",
+      "live_download_error": "Download non disponibile",
+      "live_download_error_desc": "Impossibile scaricare una diretta in corso.\nIl download è disponibile solo per i contenuti on-demand."
+    },
+    "danmaku": {
+      "header": "Impostazioni Danmaku",
+      "send": {
+        "action": "Invia",
+        "hint": "Scrivi qualcosa di bello"
+      },
+      "performance": {
+        "header": "Prestazioni",
+        "render": "Qualità rendering"
+      },
+      "filter": {
+        "header": "Filtro Danmaku",
+        "mask": "Maschera intelligente",
+        "top": "Alto",
+        "scroll": "Scorrimento",
+        "bottom": "Basso",
+        "color": "Colore",
+        "advanced": "Avanzato",
+        "level": "Livello filtro",
+        "level_n": "Livello {}"
+      },
+      "style": {
+        "header": "Stile Danmaku",
+        "font": "Stile bordo",
+        "font_stroke": "Bordo",
+        "font_incline": "Inclinato",
+        "font_shadow": "Ombra",
+        "font_pure": "Puro",
+        "area": "Area di visualizzazione",
+        "area_1_4": "1/4 Schermo",
+        "area_2_4": "1/2 Schermo",
+        "area_3_4": "3/4 Schermo",
+        "area_4_4": "Schermo intero",
+        "alpha": "Alpha",
+        "fontsize": "Dimensione carattere",
+        "line_height": "Altezza linea",
+        "speed": "Velocità",
+        "speed_slow_plus": "Estremamente lento",
+        "speed_slow": "Lento",
+        "speed_fast_plus": "Estremamente veloce",
+        "speed_fast": "Veloce",
+        "speed_moderate": "Moderato"
+      }
+    },
+    "single_comment": {
+      "detail": "Dettagli",
+      "hint": "Scrivi qualcosa di bello",
+      "related": "{} risposte totali",
+      "end": "Non ci sono altri commenti.",
+      "delete": "Dopo aver eliminato il commento, tutte le risposte sotto il commento verranno eliminate\n\nVuoi continuare?"
+    }
+  },
+  "dialog": {
+    "not_supported": "Non supportato",
+    "quit_hint": "Uscita dall'app..."
+  }
+}
