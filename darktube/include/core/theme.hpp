@@ -31,6 +31,22 @@ namespace Theme {
 
         brls::Theme::getLightTheme().addColor("brls/list/item_bg", SurfaceDark);
         brls::Theme::getDarkTheme().addColor("brls/list/item_bg", SurfaceDark);
+
+        // Focus Highlight color overrides (Red Outline, Dark Background)
+        NVGcolor focusBackground = nvgRGB(5, 5, 5); // Darker than main
+        
+        brls::Theme::getLightTheme().addColor("brls/highlight/background", focusBackground);
+        brls::Theme::getDarkTheme().addColor("brls/highlight/background", focusBackground);
+        
+        brls::Theme::getLightTheme().addColor("brls/highlight/color1", AccentRed);
+        brls::Theme::getDarkTheme().addColor("brls/highlight/color1", AccentRed);
+        
+        brls::Theme::getLightTheme().addColor("brls/highlight/color2", AccentRed); // No gradient, solid red
+        brls::Theme::getDarkTheme().addColor("brls/highlight/color2", AccentRed);
+        
+        // Pulse ripple effect matches highlight
+        brls::Theme::getLightTheme().addColor("brls/click_pulse", nvgRGBA(255, 0, 0, 38));
+        brls::Theme::getDarkTheme().addColor("brls/click_pulse", nvgRGBA(255, 0, 0, 38));
     }
 
 } // namespace Theme

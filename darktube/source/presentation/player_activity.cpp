@@ -44,7 +44,7 @@ namespace Presentation {
         centerContainer->setAlignItems(brls::AlignItems::CENTER);
         centerContainer->setJustifyContent(brls::JustifyContent::CENTER);
         
-        bufferingLoader = new brls::ActivityIndicator();
+        bufferingLoader = new brls::ProgressSpinner();
         bufferingLoader->setVisibility(brls::Visibility::INVISIBLE);
         centerContainer->addView(bufferingLoader);
         

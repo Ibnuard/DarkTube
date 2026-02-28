@@ -53,7 +53,7 @@ namespace Presentation {
         root->setAxis(brls::Axis::COLUMN);
         root->setWidthPercentage(100);
         root->setHeightPercentage(100);
-        root->setBackgroundColor(Theme::BackgroundDark);
+        root->setBackgroundColor(Theme::BackgroundDark); // Main background (navgRGB(15, 15, 15)) to contrast with sidebar
         
         // Main split: Sidebar + Content
         brls::Box* split = new brls::Box();
@@ -113,7 +113,7 @@ namespace Presentation {
         bar->setPadding(40, 20, 40, 20);
 
         brls::Image* logo = new brls::Image();
-        logo->setImageFromFile("romfs:/img/logo_horizontal.jpg"); // Loading from romfs mapped resources
+        logo->setImageFromFile("romfs:/img/logo_horizontal.png"); // Using PNG instead of JPG
         logo->setWidth(200);
         logo->setHeight(50);
         logo->setScalingType(brls::ImageScalingType::FIT);
@@ -195,15 +195,23 @@ namespace Presentation {
         state->setAlignItems(brls::AlignItems::CENTER);
         state->setJustifyContent(brls::JustifyContent::CENTER);
 
+        brls::Image* logo = new brls::Image();
+        logo->setImageFromFile("romfs:/img/logo_horizontal.png"); 
+        logo->setWidth(300);
+        logo->setHeight(80);
+        logo->setScalingType(brls::ImageScalingType::FIT);
+        logo->setMarginBottom(30);
+        state->addView(logo);
+
         brls::Label* title = new brls::Label();
         title->setText("Welcome to DarkTube");
-        title->setFontSize(40);
+        title->setFontSize(36);
         title->setTextColor(Theme::TextPrimary);
         title->setMarginBottom(10);
         state->addView(title);
 
         brls::Label* desc = new brls::Label();
-        desc->setText("Please add your DarkTube server IP to view videos.");
+        desc->setText("Please add your server IP to view videos.");
         desc->setFontSize(22);
         desc->setTextColor(Theme::TextSecondary);
         desc->setMarginBottom(40);
@@ -213,11 +221,11 @@ namespace Presentation {
             this->promptForNewIP();
             return true;
         });
-        btn->setBackgroundColor(nvgRGB(50, 50, 50)); // Make it stand out a bit
-        btn->setWidth(300);
+        btn->setBackgroundColor(nvgRGB(40, 40, 45)); 
+        btn->setWidth(brls::View::AUTO); // Allow padding to dictate size naturally
+        btn->setPadding(20, 60, 20, 60); // Rectangular but padded
+        btn->setCornerRadius(10); // Nice rounded corners without being pill
         btn->setJustifyContent(brls::JustifyContent::CENTER);
-        // Force text color white on button
-        dynamic_cast<brls::Label*>(btn->getChildren()[0])->setTextColor(Theme::TextPrimary);
         
         state->addView(btn);
 

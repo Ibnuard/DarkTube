@@ -25,7 +25,7 @@ namespace Presentation {
         brls::Box* bottomBar;
         brls::Label* statusLabel;
         brls::Label* timeLabel;
-        brls::ActivityIndicator* bufferingLoader;
+        brls::ProgressSpinner* bufferingLoader;
         bool isPlaying = true;
         bool osdVisible = false;
 
