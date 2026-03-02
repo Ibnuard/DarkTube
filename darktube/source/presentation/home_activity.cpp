@@ -263,9 +263,20 @@ namespace Presentation {
             thumbnail->setCornerRadius(12);
             
             // Action to play
-            thumbnail->registerAction("Play", brls::BUTTON_A, [](brls::View* view) {
-                brls::Logger::info("Play Video clicked. Pushing PlayerActivity");
-                brls::Application::pushActivity(new PlayerActivity());
+            std::string url = "https://cdn.brid.tv/live/partners/6205/sd/69838.mp4";
+            std::string title = "Trending Video Title " + std::to_string(c+1);
+
+            if (c == 0) {
+                title = "Live Stream";
+                url = "https://cdn.brid.tv/live/partners/6205/sd/69838.mp4";
+            } else if (c == 1) {
+                title = "SD Card Test";
+                url = "sdmc:/test.mp4";
+            }
+
+            thumbnail->registerAction("Play", brls::BUTTON_A, [url, title](brls::View* view) {
+                brls::Logger::info("Play Video clicked: " + title);
+                brls::Application::pushActivity(new PlayerActivity(url, title));
                 return true;
             });
             cardContainer->addView(thumbnail);
@@ -289,7 +300,7 @@ namespace Presentation {
             textGroup->setAxis(brls::Axis::COLUMN);
             
             brls::Label* vidTitle = new brls::Label();
-            vidTitle->setText("Trending Video Title " + std::to_string(c+1));
+            vidTitle->setText(title);
             vidTitle->setFontSize(18);
             vidTitle->setTextColor(Theme::TextPrimary);
             vidTitle->setMarginBottom(4);

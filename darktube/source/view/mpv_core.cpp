@@ -87,8 +87,8 @@ void MPVCore::init() {
     check_error(mpv_request_log_messages(mpv, "debug"));
     check_error(mpv_observe_property(mpv, 1, "core-idle", MPV_FORMAT_FLAG));
     check_error(mpv_observe_property(mpv, 2, "eof-reached", MPV_FORMAT_FLAG));
-    check_error(mpv_observe_property(mpv, 3, "duration", MPV_FORMAT_INT64));
-    check_error(mpv_observe_property(mpv, 4, "playback-time", MPV_FORMAT_DOUBLE));
+    check_error(mpv_observe_property(mpv, 3, "duration", MPV_FORMAT_DOUBLE));
+    check_error(mpv_observe_property(mpv, 4, "time-pos", MPV_FORMAT_DOUBLE));
     check_error(mpv_observe_property(mpv, 12, "pause", MPV_FORMAT_FLAG));
     check_error(mpv_observe_property(mpv, 13, "paused-for-cache", MPV_FORMAT_FLAG)); // Observe buffering state
 
@@ -140,6 +140,7 @@ void MPVCore::clean() {
 
 void MPVCore::setUrl(const std::string &url) {
     if (!mpv) return;
+    this->eof_reached = false;
     const char *cmd[] = {"loadfile", url.c_str(), NULL};
     check_error(mpv_command_async(mpv, 0, cmd));
 }
@@ -199,14 +200,22 @@ void MPVCore::eventMainLoop() {
             }
             case MPV_EVENT_PROPERTY_CHANGE: {
                 auto *prop = (mpv_event_property *)event->data;
-                if (prop->format == MPV_FORMAT_FLAG) {
-                    if (strcmp(prop->name, "core-idle") == 0) {
-                        int idle = *(int *)prop->data;
-                        video_playing = !idle;
-                    } else if (strcmp(prop->name, "paused-for-cache") == 0) {
-                        int cache_paused = *(int *)prop->data;
-                        buffering = !!cache_paused;
-                    }
+                if (strcmp(prop->name, "core-idle") == 0 && prop->format == MPV_FORMAT_FLAG) {
+                    int idle = *(int *)prop->data;
+                    video_playing = !idle;
+                } else if (strcmp(prop->name, "paused-for-cache") == 0 && prop->format == MPV_FORMAT_FLAG) {
+                    int cache_paused = *(int *)prop->data;
+                    buffering = !!cache_paused;
+                } else if (strcmp(prop->name, "eof-reached") == 0 && prop->format == MPV_FORMAT_FLAG) {
+                    eof_reached = *(int *)prop->data;
+                    if (eof_reached) brls::Logger::info("EOF Reached");
+                } else if (strcmp(prop->name, "pause") == 0 && prop->format == MPV_FORMAT_FLAG) {
+                    int is_paused = *(int *)prop->data;
+                    video_playing = !is_paused;
+                } else if (strcmp(prop->name, "duration") == 0 && prop->format == MPV_FORMAT_DOUBLE) {
+                    duration = *(double *)prop->data;
+                } else if (strcmp(prop->name, "time-pos") == 0 && prop->format == MPV_FORMAT_DOUBLE) {
+                    playback_time = *(double *)prop->data;
                 }
                 break;
             }
@@ -232,13 +241,27 @@ bool MPVCore::isPlaying() const { return video_playing; }
 bool MPVCore::isPaused() const { return !video_playing && !video_stopped; }
 bool MPVCore::isBuffering() const { return buffering; }
 
-void MPVCore::resume() { mpv_command_string(mpv, "set pause no"); }
+void MPVCore::resume() { 
+    video_stopped = false;
+    eof_reached = false;
+    mpv_command_string(mpv, "set pause no"); 
+}
 void MPVCore::pause() { mpv_command_string(mpv, "set pause yes"); }
 void MPVCore::stop() { mpv_command_string(mpv, "stop"); }
 void MPVCore::seek(int64_t p) {
-    std::string cmd = "seek " + std::to_string(p) + " absolute";
-    mpv_command_string(mpv, cmd.c_str());
+    if (!mpv) return;
+    const char *cmd[] = {"seek", std::to_string(p).c_str(), "relative", NULL};
+    check_error(mpv_command_async(mpv, 0, cmd));
 }
+void MPVCore::restart() {
+    if (!mpv) return;
+    video_stopped = false;
+    eof_reached = false;
+    const char *cmd[] = {"seek", "0", "absolute", NULL};
+    check_error(mpv_command_async(mpv, 0, cmd));
+    this->resume();
+}
+
 void MPVCore::setVolume(int64_t value) {
     std::string cmd = "set volume " + std::to_string(value);
     mpv_command_string(mpv, cmd.c_str());
