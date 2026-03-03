@@ -2,6 +2,7 @@
 #include "../include/core/theme.hpp"
 #include "view/mpv_core.hpp"
 #include "../include/presentation/ui_utils.hpp"
+#include "../include/data/network_client.hpp"
 #include <borealis.hpp>
 
 namespace DarkTube {
@@ -10,9 +11,9 @@ namespace Presentation {
     // --- VideoPlayerView ---
 
     VideoPlayerView::VideoPlayerView() {
-        this->setFocusable(true);
+        this->setFocusable(false); // Disable focus so it doesn't steal from overlay
         this->setHideHighlight(true);
-        brls::Logger::info("VideoPlayerView created. Setting focusable.");
+        brls::Logger::info("VideoPlayerView created. Focus disabled.");
     }
 
     void VideoPlayerView::draw(NVGcontext* vg, float x, float y, float width, float height, brls::Style style, brls::FrameContext* ctx) {
@@ -25,7 +26,7 @@ namespace Presentation {
 
     // --- PlayerOverlayView ---
 
-    PlayerOverlayView::PlayerOverlayView() {
+    PlayerOverlayView::PlayerOverlayView(const std::string& title) : videoTitle(title) {
         this->setWidthPercentage(100);
         this->setHeightPercentage(100);
         this->setFocusable(true);
@@ -58,42 +59,70 @@ namespace Presentation {
 
         // Actions
         this->registerAction("Toggle Play", brls::BUTTON_A, [this](brls::View* view) {
-            this->toggleOSD();
+            brls::Logger::info("Button A pressed on PlayerOverlayView");
+            if (MPVCore::instance().isEOF()) {
+                brls::Logger::info("Video EOF. Restarting.");
+                MPVCore::instance().restart();
+                this->toggleOSD(false);
+            } else if (MPVCore::instance().isPaused()) {
+                brls::Logger::info("Resuming video");
+                MPVCore::instance().resume();
+                this->toggleOSD(false);
+            } else {
+                brls::Logger::info("Pausing video");
+                MPVCore::instance().pause();
+                this->toggleOSD(true);
+            }
             return true;
         });
 
-        this->registerAction("Seek Forward", brls::BUTTON_RIGHT, [](brls::View* view) {
+        this->registerAction("Back", brls::BUTTON_B, [this](brls::View* view) {
+            if (osdVisible) {
+                this->toggleOSD(false);
+            } else {
+                brls::Application::popActivity();
+            }
+            return true;
+        });
+
+        this->registerAction("Seek Forward", brls::BUTTON_RIGHT, [this](brls::View* view) {
             brls::Logger::info("Seek +10s");
-            // Implement seek interaction later
+            MPVCore::instance().seek(10);
+            this->toggleOSD(true); // Show OSD when seeking
             return true;
         });
         
-        this->registerAction("Seek Backward", brls::BUTTON_LEFT, [](brls::View* view) {
+        this->registerAction("Seek Backward", brls::BUTTON_LEFT, [this](brls::View* view) {
             brls::Logger::info("Seek -10s");
-            // Implement seek interaction later
+            MPVCore::instance().seek(-10);
+            this->toggleOSD(true); // Show OSD when seeking
+            return true;
+        });
+
+        this->registerAction("Show OSD", brls::BUTTON_UP, [this](brls::View* view) {
+            this->toggleOSD(true);
+            return true;
+        });
+
+        this->registerAction("Hide OSD", brls::BUTTON_DOWN, [this](brls::View* view) {
+            this->toggleOSD(false);
             return true;
         });
     }
 
-    void PlayerOverlayView::toggleOSD() {
+    void PlayerOverlayView::toggleOSD(bool show) {
+        osdVisible = show;
         if (osdVisible) {
-            // Hide OSD and resume
-            osdVisible = false;
-            isPlaying = true;
-            statusLabel->setText("PLAYING");
+            // Show OSD
+            topBar->setVisibility(brls::Visibility::VISIBLE);
+            bottomBar->setVisibility(brls::Visibility::VISIBLE);
+            this->setBackgroundColor(nvgRGBA(0, 0, 0, 160)); // Darker overlay for YouTube TV feel
+            osdLastTick = brls::getCPUTimeUsec() / 1000;
+        } else {
+            // Hide OSD
             topBar->setVisibility(brls::Visibility::INVISIBLE);
             bottomBar->setVisibility(brls::Visibility::INVISIBLE);
             this->setBackgroundColor(nvgRGBA(0, 0, 0, 0));
-            MPVCore::instance().resume();
-        } else {
-            // Show OSD and pause
-            osdVisible = true;
-            isPlaying = false;
-            statusLabel->setText("PAUSED");
-            topBar->setVisibility(brls::Visibility::VISIBLE);
-            bottomBar->setVisibility(brls::Visibility::VISIBLE);
-            this->setBackgroundColor(Theme::OverlayBackground);
-            MPVCore::instance().pause();
         }
     }
 
@@ -102,14 +131,27 @@ namespace Presentation {
         if (MPVCore::instance().isBuffering()) {
             if (bufferingLoader->getVisibility() != brls::Visibility::VISIBLE) {
                 bufferingLoader->setVisibility(brls::Visibility::VISIBLE);
-                statusLabel->setText("BUFFERING...");
             }
         } else {
             if (bufferingLoader->getVisibility() == brls::Visibility::VISIBLE) {
                 bufferingLoader->setVisibility(brls::Visibility::INVISIBLE);
-                statusLabel->setText(isPlaying ? "PLAYING" : "PAUSED");
             }
         }
+        
+        // Auto-hide OSD
+        if (osdVisible && !MPVCore::instance().isPaused() && !MPVCore::instance().isEOF()) {
+            if (brls::getCPUTimeUsec() / 1000 - osdLastTick > osdTimeout) {
+                this->toggleOSD(false);
+            }
+        }
+
+        // Show OSD when video ends
+        if (MPVCore::instance().isEOF() && !osdVisible) {
+            this->toggleOSD(true);
+        }
+
+        // Update playback info
+        updatePlaybackInfo();
         
         // Pass to base class for rendering
         brls::Box::frame(ctx);
@@ -123,21 +165,11 @@ namespace Presentation {
         bar->setAlignItems(brls::AlignItems::CENTER);
         bar->setPadding(40, 60, 0, 60); // Top margin
 
-        brls::Button* backBtn = new brls::Button();
-        backBtn->setStyle(&brls::BUTTONSTYLE_BORDERLESS);
-        backBtn->setText("<  Back");
-        backBtn->registerAction("Back", brls::BUTTON_B, [](brls::View* view) {
-            brls::Application::popActivity();
-            return true;
-        });
-        bar->addView(backBtn);
-
-        brls::Label* videoTitle = new brls::Label();
-        videoTitle->setText("Sample Video Title - YouTube | DarkTube");
-        videoTitle->setFontSize(28);
-        videoTitle->setTextColor(Theme::TextPrimary);
-        videoTitle->setMarginLeft(30);
-        bar->addView(videoTitle);
+        brls::Label* videoTitleLabel = new brls::Label();
+        videoTitleLabel->setText(videoTitle + " | DarkTube");
+        videoTitleLabel->setFontSize(28);
+        videoTitleLabel->setTextColor(Theme::TextPrimary);
+        bar->addView(videoTitleLabel);
 
         return bar;
     }
@@ -170,13 +202,13 @@ namespace Presentation {
         track->setBackgroundColor(nvgRGBA(255, 255, 255, 100));
         track->setCornerRadius(4);
 
-        // Simulated filled progress (YouTube Red)
-        brls::Box* fill = new brls::Box();
-        fill->setWidthPercentage(30); // 30% complete
-        fill->setHeight(8);
-        fill->setBackgroundColor(Theme::AccentRed);
-        fill->setCornerRadius(4);
-        track->addView(fill);
+        // YouTube Style Red progress fill
+        progressFill = new brls::Box();
+        progressFill->setWidthPercentage(0); 
+        progressFill->setHeight(8);
+        progressFill->setBackgroundColor(Theme::AccentRed);
+        progressFill->setCornerRadius(4);
+        track->addView(progressFill);
 
         container->addView(track);
         return container;
@@ -201,7 +233,7 @@ namespace Presentation {
         leftGroup->addView(statusLabel);
 
         timeLabel = new brls::Label();
-        timeLabel->setText("1:23 / 4:56");
+        timeLabel->setText("0:00 / 0:00");
         timeLabel->setFontSize(20);
         timeLabel->setTextColor(Theme::TextSecondary);
         leftGroup->addView(timeLabel);
@@ -213,7 +245,7 @@ namespace Presentation {
         rightGroup->setAlignItems(brls::AlignItems::CENTER);
 
         rightGroup->addView(UIUtils::createHint(nvgRGB(50, 160, 60), "A", "Play/Pause"));
-        rightGroup->addView(UIUtils::createHint(nvgRGB(220, 180, 0), "L/R", "Seek"));
+        rightGroup->addView(UIUtils::createHint(nvgRGB(220, 180, 0), "Left/Right", "Seek"));
         rightGroup->addView(UIUtils::createHint(nvgRGB(200, 40, 40), "B", "Back"));
 
         bar->addView(rightGroup);
@@ -221,31 +253,91 @@ namespace Presentation {
         return bar;
     }
 
+    void PlayerOverlayView::updatePlaybackInfo() {
+        auto& mpv = MPVCore::instance();
+        
+        // Update status label
+        if (mpv.isBuffering()) {
+            statusLabel->setText("BUFFERING...");
+        } else if (mpv.isEOF()) {
+            statusLabel->setText("FINISHED");
+        } else if (mpv.isPaused()) {
+            statusLabel->setText("PAUSED");
+        } else {
+            statusLabel->setText("PLAYING");
+        }
+
+        // Update time label
+        double currentTime = mpv.getPlaybackTime();
+        double duration = mpv.getDuration();
+        timeLabel->setText(formatTime(currentTime) + " / " + formatTime(duration));
+
+        // Update progress bar
+        float progress = mpv.getPlaybackProgress();
+        progressFill->setWidthPercentage(progress * 100.0f);
+    }
+
+    std::string PlayerOverlayView::formatTime(double seconds) {
+        if (seconds < 0) seconds = 0;
+        int h = (int)(seconds / 3600);
+        int m = (int)((seconds - h * 3600) / 60);
+        int s = (int)(seconds - h * 3600 - m * 60);
+
+        char buf[32];
+        if (h > 0) {
+            snprintf(buf, sizeof(buf), "%d:%02d:%02d", h, m, s);
+        } else {
+            snprintf(buf, sizeof(buf), "%d:%02d", m, s);
+        }
+        return std::string(buf);
+    }
+
     void PlayerOverlayView::onFocusGained() {
         brls::Box::onFocusGained();
     }
 
     void PlayerOverlayView::onFocusLost() {
-        // If we lose focus, hide the UI to prevent it from getting stuck on screen
-        if (osdVisible) {
-             this->toggleOSD();
-        }
+        // We don't want to hide OSD automatically on focus lost if it's supposed to be visible
+        // But for TV interaction, usually focus stays on the overlay anyway
         brls::Box::onFocusLost();
     }
 
     // --- PlayerActivity ---
 
-    PlayerActivity::PlayerActivity() {
-        brls::Logger::info("User pushed PlayerActivity");
-        MPVCore::instance().setUrl("https://cdn.brid.tv/live/partners/6205/sd/69838.mp4");
-        MPVCore::instance().resume();
+    PlayerActivity::PlayerActivity(const std::string& url, const std::string& title, const std::string& videoId) 
+        : videoUrl(url), videoTitle(title), videoId(videoId) {
+        brls::Logger::info("User pushed PlayerActivity: " + videoTitle);
+        
+        if (videoUrl.empty() && !videoId.empty()) {
+            brls::Logger::info("URL empty, fetching stream for ID: {}", videoId);
+            Data::NetworkClient::instance().getStream(videoId, [this](const std::string& url, const std::string& error) {
+                if (!error.empty()) {
+                    brls::Logger::error("Failed to fetch stream: {}", error);
+                    // Show error in OSD or pop activity?
+                    // For now just pop back
+                    brls::Application::popActivity();
+                    return;
+                }
+                this->videoUrl = url;
+                MPVCore::instance().setUrl(this->videoUrl);
+                MPVCore::instance().resume();
+            });
+        } else if (!videoUrl.empty()) {
+            MPVCore::instance().setUrl(videoUrl);
+            MPVCore::instance().resume();
+        }
+    }
+
+    PlayerActivity::~PlayerActivity() {
+        brls::Logger::info("PlayerActivity destroyed. Stopping media.");
+        MPVCore::instance().stop();
     }
 
     brls::View* PlayerActivity::createContentView() {
         VideoPlayerView* videoView = new VideoPlayerView();
         
         // Add overlay that fades in/out on interaction
-        PlayerOverlayView* overlay = new PlayerOverlayView();
+        PlayerOverlayView* overlay = new PlayerOverlayView(videoTitle);
         videoView->addView(overlay);
 
         // Ensure the overlay gets focus so A/B inputs are not swallowed by the VideoView

@@ -42,6 +42,10 @@ int main(int argc, char* argv[]) {
     // Apply custom YouTube TV Dark theme
     DarkTube::Theme::applyTheme();
 
+    // Set language
+    std::string lang = DarkTube::Data::IPRepository::getInstance().getLanguage();
+    brls::Application::setLanguage(lang);
+
     // Check saved servers but always route to HomeActivity
     auto servers = DarkTube::Data::IPRepository::getInstance().getSavedServers();
     if (!servers.empty()) {

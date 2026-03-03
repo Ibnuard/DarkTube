@@ -16,8 +16,16 @@ PKGS=(
     "hacBrewPack-3.05-1-any.pkg.tar.zst"
 )
 
+echo "Installing switch-glfw from repository..."
+sudo dkp-pacman -S --noconfirm --needed switch-glfw
+
 for PKG in "${PKGS[@]}"; do
     echo "Downloading and installing ${PKG}..."
     [ -f "${PKG}" ] || curl -LO ${BASE_URL}${PKG}
-    pacman -U --noconfirm ${PKG}
+    sudo dkp-pacman -U --noconfirm ${PKG}
 done
+
+# Fix ownership if run with sudo so build dir can be deleted by user
+if [ -n "$SUDO_USER" ]; then
+    chown -R "$SUDO_USER" build/tmp_pkgs
+fi

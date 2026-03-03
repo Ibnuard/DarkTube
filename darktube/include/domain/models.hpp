@@ -16,7 +16,11 @@ namespace Domain {
         std::string title;
         std::string author;
         std::string thumbnailUrl;
+        std::string thumbnailUrlMedium;
         std::string streamUrl;
+        std::string description;
+        std::string views;
+        std::string date;
     };
 
 } // namespace Domain

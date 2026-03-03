@@ -38,6 +38,57 @@ namespace UIUtils {
         return hint;
     }
 
+    inline std::string formatViewCount(const std::string& views) {
+        if (views.empty()) return "0 views";
+        try {
+            long long count = std::stoll(views);
+            if (count >= 1000000000) return std::to_string(count / 1000000000) + "B views";
+            if (count >= 1000000) return std::to_string(count / 1000000) + "M views";
+            if (count >= 1000) return std::to_string(count / 1000) + "K views";
+            return views + " views";
+        } catch (...) {
+            return views + " views";
+        }
+    }
+
+    // Helper for circular avatar
+    inline void makeCircular(brls::Image* img, float size) {
+        img->setDimensions(size, size);
+        img->setCornerRadius(size / 2.0f);
+    }
+
+    // Simple pulse animation to simulate shimmer
+    inline void pulseView(brls::View* view) {
+        // Borealis views have an internal highlightAlpha or we can just use a custom animatable
+        // But for simplicity let's just use a label or box and change its opacity if possible
+        // Actually, let's just use a ProgressSpinner for now as it's built-in 
+        // OR implement a very simple recurring timer
+    }
+
+    inline brls::Box* createSkeletonVideoCard() {
+        brls::Box* card = new brls::Box();
+        card->setAxis(brls::Axis::COLUMN);
+        card->setMarginRight(25);
+        card->setMarginBottom(30);
+        card->setMarginLeft(10);
+        card->setWidth(256);
+
+        brls::Box* thumb = new brls::Box();
+        thumb->setDimensions(256, 144);
+        thumb->setBackgroundColor(DarkTube::Theme::SurfaceDark);
+        thumb->setCornerRadius(12);
+        card->addView(thumb);
+
+        brls::Box* meta = new brls::Box();
+        meta->setMarginTop(12);
+        meta->setDimensions(200, 20);
+        meta->setBackgroundColor(DarkTube::Theme::SurfaceDark);
+        meta->setCornerRadius(4);
+        card->addView(meta);
+
+        return card;
+    }
+
 } // namespace UIUtils
 } // namespace Presentation
 } // namespace DarkTube

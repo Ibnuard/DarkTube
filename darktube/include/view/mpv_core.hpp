@@ -30,12 +30,21 @@ public:
     bool isPlaying() const;
     bool isPaused() const;
     bool isBuffering() const;
+    bool isEOF() const { return eof_reached; }
 
     void resume();
     void pause();
     void stop();
     void seek(int64_t p);
+    void restart();
     void setVolume(int64_t value);
+
+    double getDuration() const { return duration; }
+    double getPlaybackTime() const { return playback_time; }
+    float getPlaybackProgress() const { 
+        if (duration <= 0) return 0;
+        return (float)(playback_time / duration);
+    }
 
     mpv_render_context *getContext();
     mpv_handle *getHandle();
@@ -44,6 +53,9 @@ public:
     bool video_playing = false;
     bool buffering = false;
     bool redraw = false;
+    bool eof_reached = false;
+    double duration = 0;
+    double playback_time = 0;
 
 private:
     mpv_handle *mpv = nullptr;
