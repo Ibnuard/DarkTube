@@ -43,6 +43,11 @@ namespace Data {
         saveToFile();
     }
 
+    void IPRepository::setLanguage(const std::string& lang) {
+        m_language = lang;
+        saveToFile();
+    }
+
     void IPRepository::updateServer(const Domain::ServerIP& server) {
         for (auto& s : m_servers) {
             if (s.id == server.id) {
@@ -91,6 +96,10 @@ namespace Data {
                     active.value("address", "")
                 };
             }
+
+            if (j.contains("language")) {
+                m_language = j.value("language", "en-US");
+            }
             
             brls::Logger::info("IPRepository: Loaded {} servers", m_servers.size());
             return true;
@@ -116,6 +125,7 @@ namespace Data {
             {"name", m_activeServer.name},
             {"address", m_activeServer.address}
         };
+        j["language"] = m_language;
 
         std::ofstream file(CONFIG_PATH);
         if (file.is_open()) {

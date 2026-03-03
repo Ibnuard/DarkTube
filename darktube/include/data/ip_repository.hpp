@@ -28,10 +28,15 @@ namespace Data {
         void updateServer(const Domain::ServerIP& server);
         Domain::ServerIP getActiveServer() const;
 
+        // Language support
+        std::string getLanguage() const { return m_language; }
+        void setLanguage(const std::string& lang);
+
     private:
         IPRepository(); // Initialize with mock data
         std::vector<Domain::ServerIP> m_servers;
         Domain::ServerIP m_activeServer;
+        std::string m_language = "en-US";
     };
 
 } // namespace Data

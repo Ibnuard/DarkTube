@@ -77,13 +77,13 @@ namespace Presentation {
         }
 
         // Global actions for this screen to toggle sidebar
-        root->registerAction("Toggle Sidebar", brls::BUTTON_B, [this](brls::View* view) {
+        root->registerAction(_("main/toggle_sidebar"), brls::BUTTON_B, [this](brls::View* view) {
             this->toggleSidebar();
             return true;
         });
 
         // X Button to Change Server
-        root->registerAction("Change Server", brls::BUTTON_X, [this](brls::View* view) {
+        root->registerAction(_("main/change_server"), brls::BUTTON_X, [this](brls::View* view) {
             if (!this->isServerEmpty()) {
                 this->promptForNewIP();
             }
@@ -95,7 +95,7 @@ namespace Presentation {
 
     brls::Box* HomeActivity::createSidebarItem(const std::string& title, std::function<bool(brls::View*)> onClick) {
         SidebarItem* item = new SidebarItem(title);
-        item->registerAction("Select", brls::BUTTON_A, onClick);
+        item->registerAction(_("main/select"), brls::BUTTON_A, onClick);
 
         // Highlight visual using background color change on focus is native
         item->registerAction("Focus", brls::BUTTON_NAV_UP, [](brls::View* v){return false;}); 
@@ -121,16 +121,18 @@ namespace Presentation {
         logo->setMarginLeft(20);
         bar->addView(logo);
 
-        std::vector<std::string> navItems;
-        navItems.push_back("Trending");
+        std::vector<std::pair<std::string, std::string>> navItems;
+        navItems.push_back({"Trending", _("main/trending")});
         // Only show search if there is a connected IP
         if (!isServerEmpty()) {
-            navItems.push_back("Search");
+            navItems.push_back({"Search", _("main/search")});
         }
-        navItems.push_back("Settings");
+        navItems.push_back({"Settings", _("main/settings")});
 
-        for (const auto& item : navItems) {
-            bar->addView(createSidebarItem(item, [item, this](brls::View* view) {
+        for (const auto& itemPair : navItems) {
+            std::string item = itemPair.first;
+            std::string label = itemPair.second;
+            bar->addView(createSidebarItem(label, [item, this](brls::View* view) {
                 brls::Logger::info("Navigated to " + item);
                 if (item == "Search") {
                     this->promptForSearch();
@@ -212,20 +214,20 @@ namespace Presentation {
         state->addView(logo);
 
         brls::Label* title = new brls::Label();
-        title->setText("Welcome to DarkTube");
+        title->setText(_("main/welcome"));
         title->setFontSize(36);
         title->setTextColor(Theme::TextPrimary);
         title->setMarginBottom(10);
         state->addView(title);
 
         brls::Label* desc = new brls::Label();
-        desc->setText("Please add your server IP to view videos.");
+        desc->setText(_("main/welcome_desc"));
         desc->setFontSize(22);
         desc->setTextColor(Theme::TextSecondary);
         desc->setMarginBottom(40);
         state->addView(desc);
 
-        brls::Box* btn = createSidebarItem("Add Server IP", [this](brls::View* v) {
+        brls::Box* btn = createSidebarItem(_("main/add_server_ip"), [this](brls::View* v) {
             this->promptForNewIP();
             return true;
         });
@@ -338,7 +340,7 @@ namespace Presentation {
 
     void HomeActivity::fetchTrending() {
         this->currentVideos.clear();
-        this->currentTitle = "Trending Entertainment";
+        this->currentTitle = _("main/trending");
         this->renderVideoGrid({}); // Show skeletons
 
         Data::NetworkClient::instance().getTrending([this](const std::vector<Domain::VideoItem>& videos, const std::string& error) {
@@ -373,20 +375,20 @@ namespace Presentation {
                     brls::Logger::info("Searching for: " + text);
                     
                     this->currentVideos.clear();
-                    this->currentTitle = "Searching: " + text;
+                    this->currentTitle = _("main/searching") + ": " + text;
                     this->renderVideoGrid({}); // Show skeletons
                     Data::NetworkClient::instance().search(text, [this, text](const std::vector<Domain::VideoItem>& videos, const std::string& error) {
                          if (!error.empty()) {
                             brls::Logger::error("Search failed: {}", error);
                             return;
                         }
-                        this->currentTitle = "Search: " + text;
+                        this->currentTitle = _("main/search") + ": " + text;
                         this->currentVideos = videos;
                         this->renderVideoGrid(videos);
                     });
                 }
             },
-            "Search DarkTube",
+            _("main/search_darktube"),
             "",
             255,
             "",
@@ -401,7 +403,7 @@ namespace Presentation {
         content->setPadding(40, 40, 0, 40);
 
         brls::Label* title = new brls::Label();
-        title->setText("Settings & Info");
+        title->setText(_("main/settings_info"));
         title->setFontSize(36);
         title->setTextColor(Theme::TextPrimary);
         title->setMarginBottom(30);
@@ -432,7 +434,7 @@ namespace Presentation {
 
         // --- IP LIST SECTION ---
         brls::Label* ipHeader = new brls::Label();
-        ipHeader->setText("Server Configuration");
+        ipHeader->setText(_("main/server_config"));
         ipHeader->setFontSize(24);
         ipHeader->setTextColor(Theme::TextPrimary);
         ipHeader->setMarginTop(10);
@@ -441,10 +443,10 @@ namespace Presentation {
 
         brls::Label* activeIpLabel = new brls::Label();
         if (isServerEmpty()) {
-            activeIpLabel->setText("Active Server: None");
+            activeIpLabel->setText(_("main/active_server") + ": " + _("main/none"));
         } else {
             auto server = Data::IPRepository::getInstance().getActiveServer();
-            activeIpLabel->setText("Active Server: " + server.address);
+            activeIpLabel->setText(_("main/active_server") + ": " + server.address);
         }
         activeIpLabel->setFontSize(18);
         activeIpLabel->setTextColor(Theme::TextSecondary);
@@ -464,12 +466,12 @@ namespace Presentation {
                 sBtn->setMarginBottom(5);
 
                 // Add Edit (X) and Delete (Y) actions
-                sBtn->registerAction("Edit Server", brls::BUTTON_X, [this, s](brls::View* v) {
+                sBtn->registerAction(_("main/edit_server"), brls::BUTTON_X, [this, s](brls::View* v) {
                     this->promptForEditIP(s);
                     return true;
                 });
 
-                sBtn->registerAction("Delete Server", brls::BUTTON_Y, [this, s](brls::View* v) {
+                sBtn->registerAction(_("main/delete_server"), brls::BUTTON_Y, [this, s](brls::View* v) {
                     Data::IPRepository::getInstance().removeServer(s.id);
                     this->renderSettingsView(); // Refresh settings view
                     return true;
@@ -480,7 +482,7 @@ namespace Presentation {
         }
 
         // Add new server button
-        brls::Box* addBtn = createSidebarItem("Add New Server", [this](brls::View* v) {
+        brls::Box* addBtn = createSidebarItem(_("main/add_new_server"), [this](brls::View* v) {
             this->promptForNewIP();
             return true;
         });
@@ -488,12 +490,49 @@ namespace Presentation {
         addBtn->setMarginBottom(30);
         inner->addView(addBtn);
 
+        // --- LANGUAGE SECTION ---
+        brls::Label* langHeader = new brls::Label();
+        langHeader->setText(_("main/language"));
+        langHeader->setFontSize(24);
+        langHeader->setTextColor(Theme::TextPrimary);
+        langHeader->setMarginTop(10);
+        langHeader->setMarginBottom(10);
+        inner->addView(langHeader);
+
+        std::string currentLang = Data::IPRepository::getInstance().getLanguage();
+
+        // English Option
+        brls::Box* enBtn = createSidebarItem("English" + (std::string)(currentLang == "en-US" ? " ✓" : ""), [this](brls::View* v) {
+            if (Data::IPRepository::getInstance().getLanguage() != "en-US") {
+                Data::IPRepository::getInstance().setLanguage("en-US");
+                brls::Application::setLanguage("en-US");
+                brls::Application::popActivity();
+                brls::Application::pushActivity(new HomeActivity());
+            }
+            return true;
+        });
+        enBtn->setMarginBottom(5);
+        inner->addView(enBtn);
+
+        // Indonesian Option
+        brls::Box* idBtn = createSidebarItem("Bahasa Indonesia" + (std::string)(currentLang == "id-ID" ? " ✓" : ""), [this](brls::View* v) {
+            if (Data::IPRepository::getInstance().getLanguage() != "id-ID") {
+                Data::IPRepository::getInstance().setLanguage("id-ID");
+                brls::Application::setLanguage("id-ID");
+                brls::Application::popActivity();
+                brls::Application::pushActivity(new HomeActivity());
+            }
+            return true;
+        });
+        idBtn->setMarginBottom(30);
+        inner->addView(idBtn);
+
         // --- INFO SECTIONS ---
 
-        addSection("Developer Info", "Developed by the DarkTube Team.\nProviding a custom YouTube client experience on Nintendo Switch.");
-        addSection("Instructions", "1. Start the DarkTube Backend Server on your PC/NAS.\n2. Input the local IP Address (e.g., 192.168.1.10) in the app.\n3. Browse Trending or Search for videos directly.");
-        addSection("GitHub", "https://github.com/DarkTube");
-        addSection("Changelog (v1.0)", "- Initial Release\n- Custom YouTube TV Grid UI\n- MPV Hardware Accelerated Player\n- Settings Panel added");
+        addSection(_("main/developer_info"), _("main/dev_desc"));
+        addSection(_("main/instructions"), _("main/inst_desc"));
+        addSection(_("main/github"), "https://github.com/DarkTube");
+        addSection(_("main/changelog"), "- Initial Release\n- Custom YouTube TV Grid UI\n- MPV Hardware Accelerated Player\n- Settings Panel added");
 
         scroll->setContentView(inner);
         content->addView(scroll);
@@ -510,14 +549,14 @@ namespace Presentation {
         footer->setPadding(0, 20, 0, 20); // Reduced padding
         footer->setBackgroundColor(Theme::SurfaceDark);
         
-        footer->addView(UIUtils::createHint(nvgRGB(50, 160, 60), "A", "Select"));
-        footer->addView(UIUtils::createHint(nvgRGB(220, 180, 0), "B", "Toggle Sidebar"));
+        footer->addView(UIUtils::createHint(nvgRGB(50, 160, 60), "A", _("main/select")));
+        footer->addView(UIUtils::createHint(nvgRGB(220, 180, 0), "B", _("main/toggle_sidebar")));
         
         if (isSettings) {
-             footer->addView(UIUtils::createHint(nvgRGB(100, 100, 255), "X", "Edit"));
-             footer->addView(UIUtils::createHint(nvgRGB(255, 60, 60), "Y", "Delete"));
+             footer->addView(UIUtils::createHint(nvgRGB(100, 100, 255), "X", _("main/edit")));
+             footer->addView(UIUtils::createHint(nvgRGB(255, 60, 60), "Y", _("main/delete")));
         } else if (!isServerEmpty()) {
-             footer->addView(UIUtils::createHint(nvgRGB(100, 100, 255), "X", "Change Server"));
+             footer->addView(UIUtils::createHint(nvgRGB(100, 100, 255), "X", _("main/change_server")));
         }
 
         return footer;
@@ -565,8 +604,8 @@ namespace Presentation {
                 if (!text.empty()) {
                     auto servers = Data::IPRepository::getInstance().getSavedServers();
                     if (servers.size() >= 4) {
-                        brls::Dialog* dialog = new brls::Dialog("Server limit reached. You can only have up to 4 servers.");
-                        dialog->addButton("OK", []() {});
+                        brls::Dialog* dialog = new brls::Dialog(_("main/server_limit_reached"));
+                        dialog->addButton(_("hints/ok"), []() {});
                         dialog->open();
                         return;
                     }
@@ -584,7 +623,7 @@ namespace Presentation {
                     brls::Application::pushActivity(new HomeActivity()); // Reload
                 }
             },
-            "Enter Server IP",
+            _("main/enter_server_ip"),
             "", // Default empty
             255,
             "",
@@ -605,7 +644,7 @@ namespace Presentation {
                     this->renderSettingsView(); // Refresh settings view
                 }
             },
-            "Edit Server IP",
+            _("main/edit_server_ip"),
             server.address,
             255,
             "",
