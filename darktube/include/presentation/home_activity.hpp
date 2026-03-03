@@ -17,6 +17,7 @@ namespace Presentation {
     private:
         brls::Box* sidebar;
         brls::Box* mainContent;
+        brls::Image* miniLogo;
         bool sidebarVisible = true;
 
         brls::Box* createSidebar();
@@ -34,12 +35,14 @@ namespace Presentation {
         
         brls::Box* createSettingsView();
 
-        brls::Box* createFooterHints();
+        brls::Box* createFooterHints(bool isSettings = false);
 
         void toggleSidebar();
         void promptForNewIP();
+        void promptForEditIP(const Domain::ServerIP& server);
         void promptForSearch();
         void renderSettingsView();
+        void updateFooter(bool isSettings);
 
         bool isServerEmpty();
     };

@@ -40,6 +40,24 @@ namespace Data {
 
     void IPRepository::setActiveServer(const Domain::ServerIP& server) {
         m_activeServer = server;
+        saveToFile();
+    }
+
+    void IPRepository::updateServer(const Domain::ServerIP& server) {
+        for (auto& s : m_servers) {
+            if (s.id == server.id) {
+                s.name = server.name;
+                s.address = server.address;
+
+                // Also update active server if this was it
+                if (m_activeServer.id == server.id) {
+                    m_activeServer = s;
+                }
+                
+                saveToFile();
+                break;
+            }
+        }
     }
 
     Domain::ServerIP IPRepository::getActiveServer() const {

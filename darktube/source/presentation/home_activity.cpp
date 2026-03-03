@@ -69,7 +69,7 @@ namespace Presentation {
         split->addView(mainContent);
 
         root->addView(split);
-        root->addView(createFooterHints());
+        root->addView(createFooterHints(false));
 
         // Initial fetch
         if (!isServerEmpty() && currentVideos.empty()) {
@@ -77,15 +77,8 @@ namespace Presentation {
         }
 
         // Global actions for this screen to toggle sidebar
-        root->registerAction("Toggle Sidebar", brls::BUTTON_START, [this](brls::View* view) {
+        root->registerAction("Toggle Sidebar", brls::BUTTON_B, [this](brls::View* view) {
             this->toggleSidebar();
-            return true;
-        });
-
-        root->registerAction("Back / Hide", brls::BUTTON_B, [this](brls::View* view) {
-            if (this->sidebarVisible) {
-                this->toggleSidebar();
-            }
             return true;
         });
 
@@ -117,6 +110,7 @@ namespace Presentation {
         bar->setHeightPercentage(100);
         bar->setBackgroundColor(nvgRGB(0x12, 0x12, 0x16)); // #121216 Sidebar background
         bar->setPadding(40, 20, 40, 20);
+        bar->setFocusable(false); // Container should not be focusable itself
 
         brls::Image* logo = new brls::Image();
         logo->setImageFromFile("romfs:/img/logo_horizontal.png"); // Using PNG instead of JPG
@@ -140,10 +134,13 @@ namespace Presentation {
                 brls::Logger::info("Navigated to " + item);
                 if (item == "Search") {
                     this->promptForSearch();
+                    this->updateFooter(false);
                 } else if (item == "Settings") {
                     this->renderSettingsView();
+                    this->updateFooter(true);
                 } else if (item == "Trending") {
                     this->fetchTrending();
+                    this->updateFooter(false);
                 }
                 return true;
             }));
@@ -165,8 +162,15 @@ namespace Presentation {
             brls::Box* header = new brls::Box();
             header->setAxis(brls::Axis::ROW);
             header->setWidthPercentage(100);
-            header->setJustifyContent(brls::JustifyContent::FLEX_END);
+            header->setJustifyContent(brls::JustifyContent::SPACE_BETWEEN);
             header->setMarginBottom(30);
+
+            this->miniLogo = new brls::Image();
+            this->miniLogo->setImageFromFile("romfs:/img/logo_horizontal.png");
+            this->miniLogo->setDimensions(140, 35);
+            this->miniLogo->setScalingType(brls::ImageScalingType::FIT);
+            this->miniLogo->setVisibility(sidebarVisible ? brls::Visibility::GONE : brls::Visibility::VISIBLE);
+            header->addView(this->miniLogo);
 
             brls::Label* ipLabel = new brls::Label();
             auto activeServer = Data::IPRepository::getInstance().getActiveServer();
@@ -458,6 +462,19 @@ namespace Presentation {
                     return true;
                 });
                 sBtn->setMarginBottom(5);
+
+                // Add Edit (X) and Delete (Y) actions
+                sBtn->registerAction("Edit Server", brls::BUTTON_X, [this, s](brls::View* v) {
+                    this->promptForEditIP(s);
+                    return true;
+                });
+
+                sBtn->registerAction("Delete Server", brls::BUTTON_Y, [this, s](brls::View* v) {
+                    Data::IPRepository::getInstance().removeServer(s.id);
+                    this->renderSettingsView(); // Refresh settings view
+                    return true;
+                });
+
                 inner->addView(sBtn);
             }
         }
@@ -484,7 +501,7 @@ namespace Presentation {
         return content;
     }
 
-    brls::Box* HomeActivity::createFooterHints() {
+    brls::Box* HomeActivity::createFooterHints(bool isSettings) {
         brls::Box* footer = new brls::Box();
         footer->setAxis(brls::Axis::ROW);
         footer->setHeight(30); // Made more compact
@@ -494,9 +511,12 @@ namespace Presentation {
         footer->setBackgroundColor(Theme::SurfaceDark);
         
         footer->addView(UIUtils::createHint(nvgRGB(50, 160, 60), "A", "Select"));
-        footer->addView(UIUtils::createHint(nvgRGB(220, 180, 0), "+", "Toggle Sidebar"));
+        footer->addView(UIUtils::createHint(nvgRGB(220, 180, 0), "B", "Toggle Sidebar"));
         
-        if (!isServerEmpty()) {
+        if (isSettings) {
+             footer->addView(UIUtils::createHint(nvgRGB(100, 100, 255), "X", "Edit"));
+             footer->addView(UIUtils::createHint(nvgRGB(255, 60, 60), "Y", "Delete"));
+        } else if (!isServerEmpty()) {
              footer->addView(UIUtils::createHint(nvgRGB(100, 100, 255), "X", "Change Server"));
         }
 
@@ -509,14 +529,28 @@ namespace Presentation {
             sidebar->setVisibility(brls::Visibility::VISIBLE);
             sidebar->setWidth(320); // Restore width
             
+            // Re-enable focus on children
+            for (auto child : sidebar->getChildren()) {
+                child->setFocusable(true);
+            }
+
+            if (miniLogo) miniLogo->setVisibility(brls::Visibility::GONE);
+            
             // Re-focus the first item in sidebar 
             if (sidebar->getChildren().size() > 1) { // logo + nav items
                  brls::Application::giveFocus(sidebar->getChildren()[1]); 
             }
         } else {
             // Invisible still takes space occasionally in flex, but Width=0 solves that
-            sidebar->setVisibility(brls::Visibility::INVISIBLE); 
+            sidebar->setVisibility(brls::Visibility::GONE); 
             sidebar->setWidth(0); 
+
+            // Disable focus on children to prevent accidental focus on "empty" area
+            for (auto child : sidebar->getChildren()) {
+                child->setFocusable(false);
+            }
+
+            if (miniLogo) miniLogo->setVisibility(brls::Visibility::VISIBLE);
 
             // Put focus on main content area
             brls::Application::giveFocus(mainContent);
@@ -529,6 +563,14 @@ namespace Presentation {
         brls::Application::getPlatform()->getImeManager()->openForText(
             [this](std::string text) {
                 if (!text.empty()) {
+                    auto servers = Data::IPRepository::getInstance().getSavedServers();
+                    if (servers.size() >= 4) {
+                        brls::Dialog* dialog = new brls::Dialog("Server limit reached. You can only have up to 4 servers.");
+                        dialog->addButton("OK", []() {});
+                        dialog->open();
+                        return;
+                    }
+
                     Domain::ServerIP newIp;
                     newIp.id = std::to_string(brls::getCPUTimeUsec());
                     newIp.name = "My Server";
@@ -550,6 +592,27 @@ namespace Presentation {
         );
     }
 
+    void HomeActivity::promptForEditIP(const Domain::ServerIP& server) {
+        brls::Logger::info("Prompting for Edit IP via IME...");
+        
+        brls::Application::getPlatform()->getImeManager()->openForText(
+            [this, server](std::string text) {
+                if (!text.empty()) {
+                    Domain::ServerIP updatedServer = server;
+                    updatedServer.address = text;
+
+                    Data::IPRepository::getInstance().updateServer(updatedServer);
+                    this->renderSettingsView(); // Refresh settings view
+                }
+            },
+            "Edit Server IP",
+            server.address,
+            255,
+            "",
+            0
+        );
+    }
+
     void HomeActivity::renderSettingsView() {
         // Replace main content with settings view
         brls::Box* rootBox = dynamic_cast<brls::Box*>(this->getContentView());
@@ -559,8 +622,21 @@ namespace Presentation {
                 split->removeView(mainContent, true); // true to free memory
                 mainContent = createSettingsView();
                 split->addView(mainContent);
+
+                // Update footer
+                this->updateFooter(true);
+
                 brls::Application::giveFocus(mainContent);
             }
+        }
+    }
+
+    void HomeActivity::updateFooter(bool isSettings) {
+        brls::Box* rootBox = dynamic_cast<brls::Box*>(this->getContentView());
+        if (rootBox && rootBox->getChildren().size() >= 2) {
+            brls::View* oldFooter = rootBox->getChildren()[1];
+            rootBox->removeView(oldFooter, true);
+            rootBox->addView(createFooterHints(isSettings));
         }
     }
 } // namespace Presentation

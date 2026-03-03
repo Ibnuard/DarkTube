@@ -25,6 +25,7 @@ namespace Data {
 
         // Currently active server
         void setActiveServer(const Domain::ServerIP& server);
+        void updateServer(const Domain::ServerIP& server);
         Domain::ServerIP getActiveServer() const;
 
     private:

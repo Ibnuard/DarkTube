@@ -112,7 +112,7 @@ namespace Data {
             }
 
             char* encoded = curl_easy_escape(nullptr, query.c_str(), query.length());
-            std::string url = baseUrl + "/api/search?q=" + std::string(encoded) + "&maxResults=20";
+            std::string url = baseUrl + "/api/search?q=" + std::string(encoded) + "&maxResults=20&type=video";
             curl_free(encoded);
 
             std::string response = performGet(url);
@@ -125,8 +125,11 @@ namespace Data {
                 json j = json::parse(response);
                 if (j.contains("videos")) {
                     for (auto& item : j["videos"]) {
+                        std::string id = item.value("id", "");
+                        if (id.empty()) continue;
+
                         Domain::VideoItem video;
-                        video.id = item.value("id", "");
+                        video.id = id;
                         video.title = item.value("title", "No Title");
                         
                         // New model: channel is an object with "name"
