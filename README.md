@@ -31,7 +31,7 @@ Aplikasi ini menggunakan API resmi YouTube v3 untuk mengambil daftar video, hasi
 
 Pemasangannya di Switch sangat sederhana, sama seperti aplikasi _homebrew_ pada umumnya:
 
-1. Unduh file `.nro` DarkTube versi terbaru dari halaman _Releases_ di GitHub (jika sudah tersedia), atau Anda juga bisa melakukan _build_ sendiri.
+1. Unduh file `.nro` DarkTube versi terbaru dari halaman [Releases](https://github.com/Ibnuard/DarkTube/releases/) di GitHub (jika sudah tersedia), atau Anda juga bisa melakukan _build_ sendiri.
 2. Salin file `DarkTube.nro` tersebut ke dalam folder `switch/` yang ada di SD Card Anda (jalurnya: `sdmc:/switch/DarkTube.nro`).
 3. Buka _Homebrew Menu_ (hbmenu) dari Switch Anda, lalu pilih dan jalankan DarkTube.
 
@@ -112,7 +112,7 @@ The application utilizes the official YouTube v3 API to fetch video lists, searc
 
 Installation on the Switch is straightforward, mirroring standard homebrew application installation:
 
-1. Download the latest `.nro` file from the _Releases_ page (if available) or build it yourself.
+1. Download the latest `.nro` file from the [Releases](https://github.com/Ibnuard/DarkTube/releases/) page (if available) or build it yourself.
 2. Copy the `DarkTube.nro` file into the `switch/` folder on your SD Card (path: `sdmc:/switch/DarkTube.nro`).
 3. Launch the _Homebrew Menu_ (hbmenu) on your Switch and run DarkTube.
 
